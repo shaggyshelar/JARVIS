@@ -11,20 +11,6 @@ import Dashboard from '../components/dashboard';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-//let Route = Router.Route;
-// let DefaultRoute = Router.DefaultRoute;
-
-// let routes = (
-//   <Route path="/" handler={SmartHomeApp}>
-//     <DefaultRoute handler={Dashboard} />
-//     <Route path="login" handler={Login} />
-//   </Route>
-// );
-
-// Router.run(routes, Router.HashLocation, (Root)=> {
-//   React.render(<Root />, document.getElementById('app'));
-// });
-
 render((
   <Router history={browserHistory}>
     <Route path="/" component={SmartHomeApp}>

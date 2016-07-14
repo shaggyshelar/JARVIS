@@ -1,7 +1,3 @@
-/**
- * In this file, we create a React component
- * which incorporates components provided by Material-UI.
- */
 import React, {Component} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
@@ -21,6 +17,7 @@ import {RouteHandler} from 'react-router';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Sidebar from './layout/sidebar';
+import Header from './layout/header';
 
 const styles = {
   container: {
@@ -78,23 +75,7 @@ class SmartHomeApp extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Sidebar isOpen={this.state.open} closeDrawer={this.closeDrawer} />
-          <AppBar
-            title="Smart Home"
-            onLeftIconButtonTouchTap={this.openDrawer}
-            iconElementRight={
-              <IconMenu
-                iconButtonElement={
-                  <IconButton><MoreVertIcon /></IconButton>
-                }
-                targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-                anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-                >
-                <MenuItem primaryText="Refresh" />
-                <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Sign out" />
-              </IconMenu>
-            }
-            />
+          <Header openDrawer={this.openDrawer} />
           {this.props.children}          
         </div>
       </MuiThemeProvider>
