@@ -86,7 +86,7 @@ class SmartHomeApp extends Component {
               </IconMenu>
             }
             />
-          <Login />
+          <Dashboard />
         </div>
       </MuiThemeProvider>
     );
