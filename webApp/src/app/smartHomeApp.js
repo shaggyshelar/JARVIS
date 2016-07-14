@@ -16,6 +16,8 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Drawer from 'material-ui/Drawer';
+import {RouteHandler} from 'react-router';
+
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Sidebar from './layout/sidebar';
@@ -87,6 +89,7 @@ class SmartHomeApp extends Component {
             }
             />
           <Dashboard />
+          
         </div>
       </MuiThemeProvider>
     );
