@@ -1,6 +1,8 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
+import FontIcon from 'material-ui/FontIcon';
+import Home from './home';
 
 const styles = {
     headline: {
@@ -37,17 +39,27 @@ class Dashboard extends React.Component {
                     onChange={this.handleChange}
                     value={this.state.slideIndex}
                     >
-                    <Tab label="Home" value={0} />
-                    <Tab label="Favorites" value={1} />
-                    <Tab label="Settings" value={2} />
+                    <Tab
+                        icon={<FontIcon className="material-icons">home</FontIcon>}
+                        label="Home"
+                        value={0} />
+                    <Tab
+                        icon={<FontIcon className="material-icons">star_border</FontIcon>}
+                        label="Favorites"
+                        value={1} />
+                    <Tab
+                        icon={<FontIcon className="material-icons">settings</FontIcon>}
+                        label="Favorites"
+                        value={2} />
                 </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                     >
                     <div>
-                        <h2 style={styles.headline}>Tabs with slide effect</h2>
-                        Swipe to see the next slide.<br />
+                    <div >
+                        <Home/>
+                    </div>
                     </div>
                     <div style={styles.slide}>
                         slide n°2

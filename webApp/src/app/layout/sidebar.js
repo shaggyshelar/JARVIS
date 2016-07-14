@@ -2,6 +2,10 @@ import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
 import { Link } from 'react-router';
+import Divider from 'material-ui/Divider';
+import AppBar from 'material-ui/AppBar';
+import Subheader from 'material-ui/Subheader';
+import FontIcon from 'material-ui/FontIcon';
 
 class Sidebar extends React.Component {
     constructor(props, context) {
@@ -26,16 +30,32 @@ class Sidebar extends React.Component {
                 open={this.props.isOpen}
                 onRequestChange={this.onRequestChange }
                 >
-                <MenuItem onTouchTap={this.props.closeDrawer}><Link to="/dashboard">Dashboard</Link></MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}><Link to="/login">Charts</Link></MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Actions</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Devices</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Locations</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Users</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Add Device</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Add Action</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Add Location</MenuItem>
-                <MenuItem onTouchTap={this.props.closeDrawer}>Add User</MenuItem>
+                <AppBar title="Menu"/>
+                <MenuItem onTouchTap={this.props.closeDrawer}
+                    leftIcon={<FontIcon className="material-icons">settings</FontIcon>} >
+                    <Link to="/dashboard">Dashboard</Link>
+                </MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">pie_chart</FontIcon>}><Link to="/login">Charts</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">flash_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>} ><Link to="/actions">Actions</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">devices</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/devices">Devices</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">location_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/locations">Locations</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">people</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/users">Users</Link></MenuItem>
+                <Divider />
+                <Subheader>Quick Actions</Subheader>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addDevice">Add Device</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addAction">Add Action</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addLocation">Add Location</Link></MenuItem>
+                <Divider />
+                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addUser">Add User</Link></MenuItem>
+                <Divider />
                 <MenuItem onTouchTap={this.props.closeDrawer}>Logout</MenuItem>
             </Drawer>
         );
