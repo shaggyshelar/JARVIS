@@ -1,14 +1,14 @@
 import React from 'react';
 
-class Dashboard extends React.Component {
+class Header extends React.Component {
     render() {
 
         return (
             <div>
-            Dashboard Page!!
+            Example Page!!
             </div>
         );
     }
 }
 
-module.exports = Dashboard;
+module.exports = Header;

@@ -10,7 +10,6 @@ import TextField from 'material-ui/TextField';
 class Login extends React.Component {
 
     onClick() {
-        //Actions.login(this.context.router);
         alert('clicked');
     }
 

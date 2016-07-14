@@ -15,9 +15,10 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import Drawer from 'material-ui/Drawer';
 import Login from './components/login';
 import Dashboard from './components/dashboard';
-import Drawer from 'material-ui/Drawer';
+import Sidebar from './layout/sidebar';
 
 const styles = {
   container: {
@@ -32,7 +33,7 @@ const muiTheme = getMuiTheme({
   },
 });
 
-class Main extends Component {
+class SmartHomeApp extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -67,15 +68,7 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <Drawer
-            docked={false}
-            width={200}
-            open={this.state.open}
-            onRequestChange={(open) => this.setState({ open }) }
-            >
-            <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
-            <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
-          </Drawer>
+          <Sidebar />
           <AppBar
             title="Smart Home"
             onLeftIconButtonTouchTap={this.showDrawer}
@@ -100,4 +93,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default SmartHomeApp;
