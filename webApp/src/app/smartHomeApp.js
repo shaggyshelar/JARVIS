@@ -41,7 +41,8 @@ class SmartHomeApp extends Component {
 
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.handleTouchTap = this.handleTouchTap.bind(this);
-    this.showDrawer = this.showDrawer.bind(this);
+    this.openDrawer = this.openDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
 
     this.state = {
       open: false,
@@ -60,9 +61,15 @@ class SmartHomeApp extends Component {
     });
   }
 
-  showDrawer() {
+  openDrawer() {
     this.setState({
       open: true,
+    });
+  }
+
+  closeDrawer() {
+    this.setState({
+      open: false,
     });
   }
 
@@ -70,10 +77,10 @@ class SmartHomeApp extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <Sidebar />
+          <Sidebar isOpen={this.state.open} closeDrawer={this.closeDrawer} />
           <AppBar
             title="Smart Home"
-            onLeftIconButtonTouchTap={this.showDrawer}
+            onLeftIconButtonTouchTap={this.openDrawer}
             iconElementRight={
               <IconMenu
                 iconButtonElement={
@@ -88,8 +95,7 @@ class SmartHomeApp extends Component {
               </IconMenu>
             }
             />
-          <Dashboard />
-          
+          {this.props.children}          
         </div>
       </MuiThemeProvider>
     );

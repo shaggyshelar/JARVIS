@@ -37,9 +37,9 @@ class Dashboard extends React.Component {
                     onChange={this.handleChange}
                     value={this.state.slideIndex}
                     >
-                    <Tab label="Tab One" value={0} />
-                    <Tab label="Tab Two" value={1} />
-                    <Tab label="Tab Three" value={2} />
+                    <Tab label="Home" value={0} />
+                    <Tab label="Favorites" value={1} />
+                    <Tab label="Settings" value={2} />
                 </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}
