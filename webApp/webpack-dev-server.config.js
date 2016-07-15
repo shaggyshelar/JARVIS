@@ -45,8 +45,29 @@ const config = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style', 'css']
       },
+      { 
+        test: /\.ttf$/,
+        loader: 'url-loader?limit=20000000'
+      },
+      { 
+        test: /\.svg$/,
+        loader: 'url-loader?limit=20000000'
+      },
+      { 
+        test: /\.png$/,
+        loader: 'url-loader?limit=20000000'
+      },
+      { 
+        test: /\.woff2$/,
+        loader: 'url-loader?limit=20000000'
+      },
+      { 
+        test: /\.woff$/,
+        loader: 'url-loader?limit=20000000'
+      },
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"}
     ],
   },
 };

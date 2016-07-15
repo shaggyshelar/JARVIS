@@ -8,7 +8,7 @@ import Toggle from 'material-ui/Toggle';
 
 const styles = {
     lightBulb: {
-        width: "90%",
+        width: "85%",
         display: "inline-block"
     },
     sliderStyle: {
@@ -18,6 +18,10 @@ const styles = {
     },
     card: {
         marginTop: 20
+    },
+    row: {
+        marginRight: 0,
+        marginLeft: 0,
     }
 };
 
@@ -32,30 +36,60 @@ class Action extends React.Component {
     render() {
         return (
             <div>
-                <div className="col-md-6">
-                    <Card style={styles.card}>
-                        <CardHeader title="Lawn Lights Brightness"/>
-                        <Divider />
-                        <CardText>
-                            <div>
-                                <FontIcon className="material-icons">lightbulb_outline</FontIcon>
-                                <Slider defaultValue={1} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
-                                <FontIcon className="material-icons">lightbulb_outline</FontIcon>
-                            </div>
-                        </CardText>
-                    </Card>
+                <div  className="row" style={styles.row}>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardHeader title="Lawn Lights Brightness"/>
+                            <Divider />
+                            <CardText>
+                                <div>
+                                    <FontIcon className="material-icons">lightbulb_outline</FontIcon>
+                                    <Slider defaultValue={1} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons">lightbulb_outline</FontIcon>
+                                </div>
+                            </CardText>
+                        </Card>
+                    </div>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardHeader title="Smart Frid Power"/>
+                            <Divider />
+                            <CardText>
+                                <div>
+                                    <FontIcon className="material-icons">hourglass_empty</FontIcon>
+                                    <Slider defaultValue={0.5} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons">hourglass_full</FontIcon>
+                                </div>
+                            </CardText>
+                        </Card>
+                    </div>
                 </div>
-                <div className="col-md-6">
-                    <Card style={styles.card}>
-                        <CardText>
-                            <Toggle  label="Popcorn Time"/>
-                        </CardText>
-                    </Card>
-                    <Card style={styles.card}>
-                        <CardText>
-                            <Toggle  defaultToggled={true} label="Good Night"/>
-                        </CardText>
-                    </Card>
+                <div  className="row" style={styles.row}>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardHeader title="Temperature"/>
+                            <Divider />
+                            <CardText>
+                                <div>
+                                    <FontIcon className="material-icons">brightness_low</FontIcon>
+                                    <Slider defaultValue={0} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons">brightness_high</FontIcon>
+                                </div>
+                            </CardText>
+                        </Card>
+                    </div>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardText>
+                                <Toggle label="Popcorn Time"/>
+                            </CardText>
+                        </Card>
+                        <Card style={styles.card}>
+                            <CardText>
+                                <Toggle  defaultToggled={true} label="Good Night"/>
+                            </CardText>
+                        </Card>
+                    </div>
                 </div>
             </div>
         );

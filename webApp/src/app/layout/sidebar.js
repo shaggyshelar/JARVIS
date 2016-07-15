@@ -7,6 +7,12 @@ import AppBar from 'material-ui/AppBar';
 import Subheader from 'material-ui/Subheader';
 import FontIcon from 'material-ui/FontIcon';
 
+const styles={
+    app:{
+        display:"none"
+    }
+};
+
 class Sidebar extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -30,7 +36,7 @@ class Sidebar extends React.Component {
                 open={this.props.isOpen}
                 onRequestChange={this.onRequestChange }
                 >
-                <AppBar title="Menu"/>
+                <AppBar iconStyleLeft={styles.app} title="Menu"/>
                 <MenuItem onTouchTap={this.props.closeDrawer}
                     leftIcon={<FontIcon className="material-icons">settings</FontIcon>} >
                     <Link to="/">Dashboard</Link>

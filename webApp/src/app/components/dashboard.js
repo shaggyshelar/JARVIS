@@ -6,6 +6,7 @@ import {Card, CardHeader, CardText} from 'material-ui/Card';
 import Action from './action';
 import Location from './location';
 import Home from './home';
+import Settings from './setting';
 
 const styles = {
     headline: {
@@ -46,20 +47,35 @@ class Dashboard extends React.Component {
                     <Tab icon={<FontIcon className="material-icons">home</FontIcon>}
                         label="Home">
                         <div>
-                        <Card style={styles.card}>
-                            <CardHeader title="Featured Actions"/>
-                        </Card>
-                        <Action />
-                       
+                            <Card style={styles.card}>
+                                <CardHeader title="Featured Actions"/>
+                            </Card>
+                            <Action />
+                            <Card style={styles.card}>
+                                <CardHeader title="Featured Places"/>
+                            </Card>
+                            <Location />
+                            <Card style={styles.card}>
+                                <CardHeader title="Featured Devices"/>
+                            </Card>
                         </div>
                     </Tab>
                     <Tab  icon={<FontIcon className="material-icons">star_border</FontIcon>}
                         label="Favorites">
-                         slide n°2
+                       <div>
+                            <Card style={styles.card}>
+                                <CardHeader title="Featured Actions"/>
+                            </Card>
+                            <Action />
+                            <Card style={styles.card}>
+                                <CardHeader title="Featured Places"/>
+                            </Card>
+                            <Location />
+                        </div>
                     </Tab>
                     <Tab icon={<FontIcon className="material-icons">settings</FontIcon>}
                         label="Settings">
-                        slide n°3
+                         <Settings/>
                     </Tab>
                 </Tabs>
             </div>

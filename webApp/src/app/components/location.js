@@ -12,13 +12,16 @@ const styles = {
     },
     header:{
         fontSize: 18
+    },
+    row:{
+        marginRight: 0,
+        marginLeft: 0,
     }
-        
 };
 class Location extends React.Component {
     render() {
         return (
-            <div>
+            <div className="row" style={styles.row}>
                 <div className="col-md-6">
                     <Card style={styles.card}>
                         <CardText style={styles.cardText}>

@@ -18,7 +18,9 @@ import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Sidebar from './layout/sidebar';
 import Header from './layout/header';
-
+import '../www/assets/css/bootstrap.min.css';
+ import 'material-design-icons/iconfont/material-icons.css';
+ 
 const styles = {
   container: {
     textAlign: 'center',
