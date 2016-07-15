@@ -36,14 +36,14 @@ class AddDevice extends React.Component {
                 <div style={styles.addDevicePage}>
                     <div>Name</div>
                     <TextField
-                        hintText="Name"
+                        hintText="Name" underlineShow={false}
                         /><br />
                 </div>
                 <Divider />
                 <div style={styles.addDevicePage}>
                     <div>Icon</div>
                     <TextField
-                        hintText="Icon"
+                        hintText="Icon" underlineShow={false}
                         /><br />
                 </div>
                 <Divider />
