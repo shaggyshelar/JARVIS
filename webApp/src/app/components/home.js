@@ -1,11 +1,6 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 
-const styles = {
-    block: {
-      // marginRight: 0
-    }
-};
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -16,14 +11,9 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div className="row" style={styles.block}>
+            <div >
                 <div className="col-md-6">
-                    <Card>
-                        <CardHeader title="Lawn Lights Brightness" />
-                        <CardText>
-                         
-                        </CardText>
-                    </Card>
+                    <h1>Home</h1>
                 </div>
             </div>
         );

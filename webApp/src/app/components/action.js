@@ -27,13 +27,8 @@ class Action extends React.Component {
         this.state = {
             firstSlider: 1,
         };
-
-        this.handleFirstSlider = this.handleFirstSlider.bind(this);
     }
 
-    handleFirstSlider(event, value) {
-        this.setState({ firstSlider: value });
-    }
     render() {
         return (
             <div>

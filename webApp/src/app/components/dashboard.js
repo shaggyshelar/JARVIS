@@ -2,6 +2,9 @@ import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import FontIcon from 'material-ui/FontIcon';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
+import Action from './action';
+import Location from './location';
 import Home from './home';
 
 const styles = {
@@ -14,6 +17,10 @@ const styles = {
     slide: {
         padding: 10,
     },
+    card: {
+        marginTop: 10,
+        backgroundColor: "#D9E4E4",
+    }
 };
 
 class Dashboard extends React.Component {
@@ -35,39 +42,26 @@ class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <Tabs
-                    onChange={this.handleChange}
-                    value={this.state.slideIndex}
-                    >
-                    <Tab
-                        icon={<FontIcon className="material-icons">home</FontIcon>}
-                        label="Home"
-                        value={0} />
-                    <Tab
-                        icon={<FontIcon className="material-icons">star_border</FontIcon>}
-                        label="Favorites"
-                        value={1} />
-                    <Tab
-                        icon={<FontIcon className="material-icons">settings</FontIcon>}
-                        label="Favorites"
-                        value={2} />
-                </Tabs>
-                <SwipeableViews
-                    index={this.state.slideIndex}
-                    onChangeIndex={this.handleChange}
-                    >
-                    <div>
-                    <div >
-                        <Home/>
-                    </div>
-                    </div>
-                    <div style={styles.slide}>
-                        slide n°2
-                    </div>
-                    <div style={styles.slide}>
+                <Tabs>
+                    <Tab icon={<FontIcon className="material-icons">home</FontIcon>}
+                        label="Home">
+                        <div>
+                        <Card style={styles.card}>
+                            <CardHeader title="Featured Actions"/>
+                        </Card>
+                        <Action />
+                       
+                        </div>
+                    </Tab>
+                    <Tab  icon={<FontIcon className="material-icons">star_border</FontIcon>}
+                        label="Favorites">
+                         slide n°2
+                    </Tab>
+                    <Tab icon={<FontIcon className="material-icons">settings</FontIcon>}
+                        label="Settings">
                         slide n°3
-                    </div>
-                </SwipeableViews>
+                    </Tab>
+                </Tabs>
             </div>
         );
     }

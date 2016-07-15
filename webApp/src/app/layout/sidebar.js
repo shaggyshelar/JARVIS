@@ -33,7 +33,7 @@ class Sidebar extends React.Component {
                 <AppBar title="Menu"/>
                 <MenuItem onTouchTap={this.props.closeDrawer}
                     leftIcon={<FontIcon className="material-icons">settings</FontIcon>} >
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/">Dashboard</Link>
                 </MenuItem>
                 <Divider />
                 <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">pie_chart</FontIcon>}><Link to="/login">Charts</Link></MenuItem>
