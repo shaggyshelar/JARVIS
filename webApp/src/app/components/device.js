@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
+import Slider from 'react-slick';
 const styles = {
     card: {
         marginTop: 20,
@@ -11,25 +12,29 @@ const styles = {
     },
     header: {
         fontSize: 18
+    },
+    container: {
+        margin: "0 auto",
+        padding :"10px",
+        width: "90%"
     }
 };
 class Device extends React.Component {
     render() {
+        var settings = {
+            dots: true
+        };
 
         return (
             <div>
-                <Card>
-                    <CardHeader
-                        title="Wi-Fi Camera Snapshot"
-                        />
-                    <CardMedia>
-                        <img src="http://lorempixel.com/600/337/nature/" />
-                    </CardMedia>
-                    <CardActions>
-                        <RaisedButton label="Previous" primary={true} />
-                        <RaisedButton label="Next" secondary={true} />
-                    </CardActions>
-                </Card>
+                <div  style={styles.container}>
+                    <Slider  {...settings}>
+                        <div><img src='http://lorempixel.com/600/337/nature/' /></div>
+                        <div><img src='http://lorempixel.com/600/337/nature/' /></div>
+                        <div><img src='http://lorempixel.com/600/337/nature/' /></div>
+                        <div><img src='http://lorempixel.com/600/337/nature/' /></div>
+                    </Slider>
+                </div>
                 <Card>
                     <CardText style={styles.cardText}>
                         <p>
