@@ -14,7 +14,6 @@ const styles = {
     sliderStyle: {
         marginTop: 0,
         marginBottom: 0,
-        marginRight: 7,
     },
     card: {
         marginTop: 20
@@ -42,10 +41,10 @@ class Action extends React.Component {
                             <CardHeader title="Lawn Lights Brightness"/>
                             <Divider />
                             <CardText>
-                                <div>
-                                    <FontIcon className="material-icons">lightbulb_outline</FontIcon>
-                                    <Slider defaultValue={1} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
-                                    <FontIcon className="material-icons">lightbulb_outline</FontIcon>
+                             <div className="row" style={styles.row}>
+                                    <FontIcon className="material-icons col-xs-2 col-md-1">lightbulb_outline</FontIcon>
+                                    <Slider className="col-xs-8  col-md-10" defaultValue={1}  sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons  col-xs-2 col-md-1">lightbulb_outline</FontIcon>
                                 </div>
                             </CardText>
                         </Card>
@@ -55,10 +54,10 @@ class Action extends React.Component {
                             <CardHeader title="Smart Frid Power"/>
                             <Divider />
                             <CardText>
-                                <div>
-                                    <FontIcon className="material-icons">hourglass_empty</FontIcon>
-                                    <Slider defaultValue={0.5} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
-                                    <FontIcon className="material-icons">hourglass_full</FontIcon>
+                                <div className="row" style={styles.row}>
+                                    <FontIcon className="material-icons col-xs-2 col-md-1">hourglass_empty</FontIcon>
+                                    <Slider defaultValue={0.5} className="col-xs-8  col-md-10"  sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons col-xs-2 col-md-1">hourglass_full</FontIcon>
                                 </div>
                             </CardText>
                         </Card>
@@ -70,10 +69,10 @@ class Action extends React.Component {
                             <CardHeader title="Temperature"/>
                             <Divider />
                             <CardText>
-                                <div>
-                                    <FontIcon className="material-icons">brightness_low</FontIcon>
-                                    <Slider defaultValue={0} style={styles.lightBulb} sliderStyle={styles.sliderStyle}/>
-                                    <FontIcon className="material-icons">brightness_high</FontIcon>
+                                <div className="row" style={styles.row}>
+                                    <FontIcon className="material-icons col-xs-2 col-md-1">brightness_low</FontIcon>
+                                    <Slider defaultValue={0} className="col-xs-8  col-md-10"  sliderStyle={styles.sliderStyle}/>
+                                    <FontIcon className="material-icons col-xs-2 col-md-1">brightness_high</FontIcon>
                                 </div>
                             </CardText>
                         </Card>
