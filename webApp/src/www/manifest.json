@@ -1,6 +1,7 @@
 {
     "name": "Smart Home",
     "short_name": "Smart Home",
+    "gcm_sender_id": "994315037246",
     "start_url": "./?utm_source=web_app_manifest",
     "display": "standalone",
     "icons": [
