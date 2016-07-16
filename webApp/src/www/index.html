@@ -36,6 +36,44 @@
     })();
   </script>
   <script src="app.js"></script>
-  <script src="assets/main.js"></script>
+  <!--<script src="assets/main.js"></script>-->
+  <script src="propel-client.js"></script>
+  <script >
+      var PropelClient = window.goog.propel.PropelClient;
+      // Check if push is supported by the current browsers
+      if (PropelClient.isSupported()) {
+        
+        // Initialise Push Client
+        var propelClient = new PropelClient('./sw.js');
+        propelClient.addEventListener('statuschange', function(event) {
+          if (event.permissionStatus === 'denied') {
+            // Disable UI
+          } else if (event.currentSubscription) {
+            // Enable UI
+            // Show that user is subscribed
+
+            // Send the subscription object to your server
+            console.error('Send subscription to server',event.currentSubscription);
+            alert('subscribed to push notification');
+            localStorage.setItem("currentSubscription", event.currentSubscription);
+            // fetch('/your-backend-api', {
+            //   method: 'post',
+            //   headers: new Headers().append('Content-Type', 'application/json'),
+            //   body: JSON.stringify(event.currentSubscription)
+            // });
+          } else {
+            // Enable UI
+            // Show that user is not subscribed
+          }
+        });
+
+        if(!localStorage.getItem('currentSubscription')){
+          propelClient.subscribe();
+        }
+        //propelClient.subscribe();
+        // OR
+        //propelClient.unsubscribe();
+      }
+  </script>
 </body>
 </html>
