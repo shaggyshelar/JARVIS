@@ -57,8 +57,44 @@ class SmartHomeApp extends Component {
 
 
   componentDidMount() {
+    //var PropelClient = window.goog.propel.PropelClient;
+    if (propelClient) {
+
+      //var propelClient = new PropelClient('./sw.js');
+      propelClient.addEventListener('statuschange', function (event) {
+        console.log('statuschange2', event.currentSubscription);
+        console.log('Current User', firebase.auth().currentUser);
+        if (event.permissionStatus === 'denied') {
+          // Disable UI
+        } else if (event.currentSubscription) {
+          if (!localStorage.getItem('currentSubscription')) {
+            var user = firebase.auth().currentUser;
+            console.log('New Subscription', user);
+            //console.warn('Send subscription to server', event.currentSubscription);
+            let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
+            let userEmail = user.email;
+            // console.log('To Send', registrationID);
+            // console.log('userEmail', userEmail);
+            //let firebaseRef = firebase.database().ref('subscriptions/' + userEmail);
+            let firebaseRef = firebase.database().ref('subscriptions');
+            firebaseRef.push({
+              "regID": registrationID,
+              "email" : userEmail,
+              "date": new Date().toUTCString(),
+            });
+            localStorage.setItem("currentSubscription", event.currentSubscription);
+          }
+        } else {
+          console.log('reseting currentSubscription');
+          // Enable UI
+          // Show that user is not subscribed
+        }
+      });
+    }
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
+        // var user = firebase.auth().currentUser;
+        // console.log('Current User', user);
         browserHistory.replace('/dashboard');
         //firebase.auth().currentUser;
       } else {

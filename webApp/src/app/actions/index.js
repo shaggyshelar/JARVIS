@@ -31,6 +31,21 @@ class Actions {
         });
     };
   }
+
+  subscribe() {
+    return (dispatch) => {
+      console.log('subscribing');
+      propelClient.subscribe();
+    };
+  }
+
+  unsubscribe() {
+    return (dispatch) => {
+      console.log('un subscribing');
+      propelClient.unsubscribe();
+      localStorage.removeItem("currentSubscription");
+    };
+  }
 }
 
 export default alt.createActions(Actions);

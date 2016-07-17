@@ -9,6 +9,7 @@ import Checkbox from 'material-ui/Checkbox';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Actions from '../actions';
 
 const styles = {
     card: {
@@ -23,13 +24,24 @@ class Settings extends React.Component {
         this.state = {
         };
     }
+
+    onNotificationToggle(event, status) {
+        Actions.subscribe();
+        // console.log('subscribing');
+        // propelClient.subscribe();
+        // if(status){
+        //     propelClient.subscribe();
+        // }else{
+        //     propelClient.unsubscribe();
+        // }       
+    }
     render() {
         return (
             <div >
                 <List>
                     <Subheader>General Setings</Subheader>
                     <Divider />
-                    <ListItem primaryText="Notifications" rightToggle={<Toggle />} />
+                    <ListItem primaryText="Notifications" rightToggle={<Toggle onToggle={this.onNotificationToggle} />} />
                     <Divider />
                     <ListItem primaryText="Location Services" rightToggle={<Toggle />} />
                     <Divider />
