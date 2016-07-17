@@ -12,15 +12,16 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Drawer from 'material-ui/Drawer';
-import {RouteHandler} from 'react-router';
+import {RouteHandler, browserHistory} from 'react-router';
+import firebase from 'firebase';
 
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import Sidebar from './layout/sidebar';
 import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
- import 'material-design-icons/iconfont/material-icons.css';
- 
+import 'material-design-icons/iconfont/material-icons.css';
+
 const styles = {
   container: {
     textAlign: 'center',
@@ -54,6 +55,19 @@ class SmartHomeApp extends Component {
     });
   }
 
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        browserHistory.replace('/dashboard');
+        //firebase.auth().currentUser;
+      } else {
+        browserHistory.replace('/login');
+      }
+    });
+  }
+
+
   handleTouchTap() {
     this.setState({
       open: true,
@@ -78,7 +92,7 @@ class SmartHomeApp extends Component {
         <div>
           <Sidebar isOpen={this.state.open} closeDrawer={this.closeDrawer} />
           <Header openDrawer={this.openDrawer} />
-          {this.props.children}          
+          {this.props.children}
         </div>
       </MuiThemeProvider>
     );

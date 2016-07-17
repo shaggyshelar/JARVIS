@@ -22,7 +22,7 @@ class Actions {
       firebase.auth().signInWithEmailAndPassword('sagar.shelar@outlook.com', 'Sagar@123')
         .then(function (user) {
           dispatch(user);
-          router.transitionTo('/chat');
+          router.transitionTo('/dashboard');
         })
         .catch(function (error) {
           var errorCode = error.code;

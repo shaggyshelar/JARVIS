@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import firebase from 'firebase';
 
 import SmartHomeApp from '../smartHomeApp';
 import Login from '../components/login';
@@ -19,10 +20,18 @@ import AddLocation from '../components/addLocation';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+var config = {
+  apiKey: "AIzaSyDIXCGE7OJgPvn8zO_jqKRkSHpziBbB2z4",
+  authDomain: "smarthome-46be4.firebaseapp.com",
+  databaseURL: "https://smarthome-46be4.firebaseio.com",
+  storageBucket: "smarthome-46be4.appspot.com",
+};
+firebase.initializeApp(config);
+
 render((
   <Router history={browserHistory}>
     <Route path="/" component={SmartHomeApp}>
-      <IndexRoute component={Dashboard}/>
+      <Route path="dashboard" component={Dashboard}/>
       <Route path="login"  component={Login} />
       <Route path="actions" component={Action} />
       <Route path="devices" component={Device} />
@@ -32,8 +41,6 @@ render((
       <Route path="addAction" component={AddAction} />
       <Route path="addLocation" component={AddLocation} />
       <Route path="addUser" component={AddUser} />
-
     </Route>
   </Router>
 ), document.getElementById('app'))
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import mui from 'material-ui';
-//import Actions from '../actions';
+import Actions from '../actions';
 import {List} from 'material-ui/List';
 import {Card, CardText} from 'material-ui/Card';
 import CircularProgress from 'material-ui/CircularProgress';
@@ -10,7 +10,7 @@ import TextField from 'material-ui/TextField';
 class Login extends React.Component {
 
     onClick() {
-        alert('clicked');
+        Actions.login(this.context.router);
     }
 
     render() {

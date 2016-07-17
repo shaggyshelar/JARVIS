@@ -6,10 +6,11 @@ import Divider from 'material-ui/Divider';
 import AppBar from 'material-ui/AppBar';
 import Subheader from 'material-ui/Subheader';
 import FontIcon from 'material-ui/FontIcon';
+import firebase from 'firebase';
 
-const styles={
-    app:{
-        display:"none"
+const styles = {
+    app: {
+        display: "none"
     }
 };
 
@@ -17,6 +18,7 @@ class Sidebar extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.onRequestChange = this.onRequestChange.bind(this);
+        this.onLogout = this.onLogout.bind(this);
         this.state = {
             open: false,
         };
@@ -26,6 +28,15 @@ class Sidebar extends React.Component {
         if (open === false) {
             this.props.closeDrawer();
         }
+    }
+
+    onLogout() {
+        this.props.closeDrawer();
+        // firebase.auth().signOut().then(function () {
+        //     browserHistory.replace('/login');
+        // }, function (error) {
+        //     // An error happened.
+        // });
     }
 
     render() {
@@ -62,7 +73,7 @@ class Sidebar extends React.Component {
                 <Divider />
                 <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addUser">Add User</Link></MenuItem>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer}>Logout</MenuItem>
+                <MenuItem onTouchTap={this.onLogout}>Logout</MenuItem>
             </Drawer>
         );
     }
