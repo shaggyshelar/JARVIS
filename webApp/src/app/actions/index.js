@@ -20,8 +20,8 @@ class Actions {
 
   login(credentials) {
     return (dispatch) => {
-      //firebase.auth().signInWithEmailAndPassword('sagar.shelar@outlook.com', 'Sagar@123')
-      firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
+      firebase.auth().signInWithEmailAndPassword('sagar.shelar@outlook.com', 'Sagar@123')
+      //firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
         .then(function (user) {
           dispatch(user);
           browserHistory.replace('/dashboard');

@@ -43,7 +43,7 @@
       if (PropelClient.isSupported()) {
         
         // Initialise Push Client
-        var propelClient = new PropelClient('./sw.js');
+        var propelClient = new PropelClient('./sw-precache-config.js');
         // propelClient.addEventListener('statuschange', function(event) {
         //   if (event.permissionStatus === 'denied') {
         //     // Disable UI
@@ -73,6 +73,6 @@
         //propelClient.unsubscribe();
       }
   </script>
-  <script src="app.js"></script>  
+  <script src="app.js"></script>
 </body>
 </html>

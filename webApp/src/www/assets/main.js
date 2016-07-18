@@ -22,7 +22,7 @@
 var reg;
 var sub;
 var isSubscribed = false;
-var subscribeButton = document.querySelector('button');
+//var subscribeButton = document.querySelector('button');
 
 if ('serviceWorker' in navigator) {
   console.log('Service Worker is supported');
@@ -30,7 +30,7 @@ if ('serviceWorker' in navigator) {
     return navigator.serviceWorker.ready;
   }).then(function(serviceWorkerRegistration) {
     reg = serviceWorkerRegistration;
-    subscribeButton.disabled = false;
+   // subscribeButton.disabled = false;
     console.log('Service Worker is ready :^)', reg);
   }).catch(function(error) {
     console.log('Service Worker Error :^(', error);
@@ -39,13 +39,13 @@ if ('serviceWorker' in navigator) {
     console.error('Note: Service Worker is NOT supported');
 }
 
-subscribeButton.addEventListener('click', function() {
-  if (isSubscribed) {
-    unsubscribe();
-  } else {
-    subscribe();
-  }
-});
+// subscribeButton.addEventListener('click', function() {
+//   if (isSubscribed) {
+//     unsubscribe();
+//   } else {
+//     subscribe();
+//   }
+// });
 
 function subscribe() {
   reg.pushManager.subscribe({userVisibleOnly: true}).

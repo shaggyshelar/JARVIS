@@ -4,6 +4,40 @@ const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 
+const swPrecache = require('sw-precache');
+
+function WebpackSwPrecachePlugin(options) {
+}
+
+WebpackSwPrecachePlugin.prototype.apply = function(compiler) {
+    var rootDir = 'src/www';
+
+    var options = {
+      staticFileGlobs: [
+      '/src/app/*.css',
+      '/src/www/index.html',
+      '/src/app/layout/*.js',
+      '/src/app/smartHomeApp.js',
+      '/src/app/app.js',
+      '/src/app/routes/index.js',
+      '/node_modules/material-ui/{**,*}.{js,css}',
+      '/node_modules/**/**/*.{js,css}',
+      '/node_modules/**/*.{js,css}',
+      ],
+      stripPrefix: rootDir 
+  }
+    compiler.plugin("after-emit", (compilation, callback) => {
+        swPrecache.write(path.join(rootDir,"sw-precache-config.js"), options, function(err){
+            if (err) {
+                console.log("\n*** sw-precache file creation error: "+err);
+            } else {
+                console.log("\nCreated sw-precache file static/sw-precache-config.js");
+            }
+            callback(err);
+        })
+    });
+};
+
 const config = {
   // Entry points to the project
   entry: [
@@ -34,6 +68,7 @@ const config = {
     new TransferWebpackPlugin([
       {from: 'www'},
     ], path.resolve(__dirname, 'src')),
+    new WebpackSwPrecachePlugin(),
   ],
   module: {
     loaders: [
