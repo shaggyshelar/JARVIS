@@ -8,9 +8,26 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
 class Login extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.state = {
+            email: '',
+            password: ''
+        };
+    }
 
     onClick() {
-        Actions.login(this.context.router);
+        Actions.login({ email: this.state.email, password: this.state.password});
+    }
+
+    handleEmailChange(event) {
+        //this.setState({ email: event.target.value });
+    }
+
+    handlePasswordChange(event) {
+        //this.setState({ password: event.target.value });
     }
 
     render() {
@@ -27,6 +44,7 @@ class Login extends React.Component {
                     <TextField
                         hintText=""
                         floatingLabelText="Email"
+                        onChange={this.handleEmailChange}
                         />
                 </CardText>
                 <CardText style={{
@@ -35,6 +53,8 @@ class Login extends React.Component {
                     <TextField
                         hintText=""
                         floatingLabelText="Password"
+                        type="password"
+                        onChange={this.handlePasswordChange}
                         />
                 </CardText>
 

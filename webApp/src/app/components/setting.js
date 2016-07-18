@@ -27,7 +27,6 @@ class Settings extends React.Component {
 
     onNotificationToggle(event, status) {
         Actions.subscribe();
-        // console.log('subscribing');
         // propelClient.subscribe();
         // if(status){
         //     propelClient.subscribe();

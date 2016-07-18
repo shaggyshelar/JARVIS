@@ -1,5 +1,6 @@
 import alt from '../alt';
 import firebase from 'firebase';
+import {browserHistory} from 'react-router';
 
 class Actions {
   constructor() {
@@ -17,12 +18,13 @@ class Actions {
     );
   }
 
-  login(router) {
+  login(credentials) {
     return (dispatch) => {
-      firebase.auth().signInWithEmailAndPassword('sagar.shelar@outlook.com', 'Sagar@123')
+      //firebase.auth().signInWithEmailAndPassword('sagar.shelar@outlook.com', 'Sagar@123')
+      firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
         .then(function (user) {
           dispatch(user);
-          router.transitionTo('/dashboard');
+          browserHistory.replace('/dashboard');
         })
         .catch(function (error) {
           var errorCode = error.code;
@@ -34,14 +36,12 @@ class Actions {
 
   subscribe() {
     return (dispatch) => {
-      console.log('subscribing');
       propelClient.subscribe();
     };
   }
 
   unsubscribe() {
     return (dispatch) => {
-      console.log('un subscribing');
       propelClient.unsubscribe();
       localStorage.removeItem("currentSubscription");
     };

@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import firebase from 'firebase';
+import { Provider } from 'react-redux';
+import configureStore from '../stores/configureStore';
 
 import SmartHomeApp from '../smartHomeApp';
 import Login from '../components/login';
@@ -28,19 +30,23 @@ var config = {
 };
 firebase.initializeApp(config);
 
+const store = configureStore();
+
 render((
-  <Router history={browserHistory}>
-    <Route path="/" component={SmartHomeApp}>
-      <Route path="dashboard" component={Dashboard}/>
-      <Route path="login"  component={Login} />
-      <Route path="actions" component={Action} />
-      <Route path="devices" component={Device} />
-      <Route path="locations" component={Location} />
-      <Route path="users" component={User} />
-      <Route path="addDevice" component={AddDevice} />
-      <Route path="addAction" component={AddAction} />
-      <Route path="addLocation" component={AddLocation} />
-      <Route path="addUser" component={AddUser} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={SmartHomeApp}>
+        <Route path="dashboard" component={Dashboard}/>
+        <Route path="login"  component={Login} />
+        <Route path="actions" component={Action} />
+        <Route path="devices" component={Device} />
+        <Route path="locations" component={Location} />
+        <Route path="users" component={User} />
+        <Route path="addDevice" component={AddDevice} />
+        <Route path="addAction" component={AddAction} />
+        <Route path="addLocation" component={AddLocation} />
+        <Route path="addUser" component={AddUser} />
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('app'))
