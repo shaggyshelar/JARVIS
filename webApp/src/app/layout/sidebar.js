@@ -53,25 +53,25 @@ class Sidebar extends React.Component {
                     <Link to="/">Dashboard</Link>
                 </MenuItem>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">pie_chart</FontIcon>}><Link to="/login">Charts</Link></MenuItem>
+                <Link to="/login"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">pie_chart</FontIcon>}>Charts</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">flash_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>} ><Link to="/actions">Actions</Link></MenuItem>
+                <Link to="/actions"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">flash_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Actions</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">devices</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/devices">Devices</Link></MenuItem>
+                <Link to="/devices"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">devices</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Devices</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">location_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/locations">Locations</Link></MenuItem>
+                <Link to="/locations"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">location_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Locations</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">people</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}><Link to="/users">Users</Link></MenuItem>
+                <Link to="/users"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">people</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Users</MenuItem></Link>
                 <Divider />
                 <Subheader>Quick Actions</Subheader>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addDevice">Add Device</Link></MenuItem>
+                <Link to="/addDevice"> <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}>Add Device</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addAction">Add Action</Link></MenuItem>
+                <Link to="/addAction"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}>Add Action</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addLocation">Add Location</Link></MenuItem>
+                <Link to="/addLocation">A<MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}>dd Location</MenuItem></Link>
                 <Divider />
-                <MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}><Link to="/addUser">Add User</Link></MenuItem>
+                <Link to="/addUser"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">note_add</FontIcon>}>Add User</MenuItem></Link>
                 <Divider />
                 <MenuItem onTouchTap={this.onLogout}>Logout</MenuItem>
             </Drawer>

@@ -1,9 +1,6 @@
 import React from 'react';
-import mui from 'material-ui';
 import Actions from '../actions';
-import {List} from 'material-ui/List';
 import {Card, CardText} from 'material-ui/Card';
-import CircularProgress from 'material-ui/CircularProgress';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 

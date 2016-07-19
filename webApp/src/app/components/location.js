@@ -1,6 +1,5 @@
 import React from 'react';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardText} from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
 
 const styles = {
