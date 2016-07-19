@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
+import Dialog from 'material-ui/Dialog';
 import {deepOrange500} from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -9,6 +12,7 @@ import Sidebar from './layout/sidebar';
 import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
 import 'material-design-icons/iconfont/material-icons.css';
+import {onSubscribtionChange} from './actions/firebaseActions';
 
 const styles = {
   container: {
@@ -46,13 +50,17 @@ class SmartHomeApp extends Component {
 
   componentDidMount() {
     //var PropelClient = window.goog.propel.PropelClient;
+    let onSubscribtionChange = this.props.onSubscribtionChange; 
     if (propelClient) {
 
       //var propelClient = new PropelClient('./sw.js');
       propelClient.addEventListener('statuschange', function (event) {
+        console.log('insideeeeeeeeeeeeeeeeeee');
         if (event.permissionStatus === 'denied') {
           // Disable UI
         } else if (event.currentSubscription) {
+          console.log('setting true');
+          onSubscribtionChange(true);
           if (!localStorage.getItem('currentSubscription')) {
             var user = firebase.auth().currentUser;
             let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
@@ -60,7 +68,7 @@ class SmartHomeApp extends Component {
             let firebaseRef = firebase.database().ref('subscriptions');
             firebaseRef.push({
               "regID": registrationID,
-              "email" : userEmail,
+              "email": userEmail,
               "date": new Date().toUTCString(),
             });
             localStorage.setItem("currentSubscription", event.currentSubscription);
@@ -73,9 +81,11 @@ class SmartHomeApp extends Component {
     }
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // var user = firebase.auth().currentUser;
         browserHistory.replace('/dashboard');
-        //firebase.auth().currentUser;
+        if(localStorage.getItem('currentSubscription')){
+          console.log('sending tru..........');
+          onSubscribtionChange(true);
+        }
       } else {
         browserHistory.replace('/login');
       }
@@ -114,4 +124,21 @@ class SmartHomeApp extends Component {
   }
 }
 
-export default SmartHomeApp;
+const mapStateToProps = (state) => {
+  return {
+    isSubscribed: state.isSubscribed
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSubscribtionChange: (status) => {
+      dispatch(onSubscribtionChange(status));
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SmartHomeApp);

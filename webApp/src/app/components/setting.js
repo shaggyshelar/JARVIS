@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import {Card, CardHeader} from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
@@ -8,6 +10,7 @@ import Checkbox from 'material-ui/Checkbox';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Actions from '../actions';
+import {onSubscribtionChange} from '../actions/firebaseActions';
 
 const styles = {
     card: {
@@ -21,6 +24,11 @@ class Settings extends React.Component {
         super(props);
         this.state = {
         };
+        this.onLocationToggle = this.onLocationToggle.bind(this);
+    }
+
+    onLocationToggle(event, status) {
+        this.props.onSubscribtionChange(status);
     }
 
     onNotificationToggle(event, status) {
@@ -38,9 +46,11 @@ class Settings extends React.Component {
                 <List>
                     <Subheader>General Setings</Subheader>
                     <Divider />
-                    <ListItem primaryText="Notifications" rightToggle={<Toggle onToggle={this.onNotificationToggle} />} />
+                    <ListItem primaryText="Notifications" rightToggle={
+                        <Toggle onToggle={this.onNotificationToggle} defaultToggled={this.props.isSubscribed}/>
+                    } />
                     <Divider />
-                    <ListItem primaryText="Location Services" rightToggle={<Toggle />} />
+                    <ListItem primaryText="Location Services" rightToggle={<Toggle onToggle={this.onLocationToggle}/>} />
                     <Divider />
                     <ListItem primaryText="Use Google Maps" rightToggle={<Toggle />} />
                     <Divider />
@@ -79,4 +89,22 @@ class Settings extends React.Component {
     }
 }
 
-module.exports = Settings;
+const mapStateToProps = (state) => {
+    console.log(' Subscribed:', state.isSubscribed);
+    return {
+        isSubscribed: state.isSubscribed
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubscribtionChange: (status) => {
+            dispatch(onSubscribtionChange(status));
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Settings);
