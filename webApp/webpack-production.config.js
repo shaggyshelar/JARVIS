@@ -16,7 +16,7 @@ WebpackSwPrecachePlugin.prototype.apply = function(compiler) {
     var options = {
       staticFileGlobs: [
         'public/app.js',
-        'public/style.css',
+        'public/styles.css',
         'public/assets/images/*.png'
       ],
       stripPrefix: rootDir 
@@ -63,7 +63,7 @@ const config = {
     new TransferWebpackPlugin([
       {from: 'www'},
     ], path.resolve(__dirname, 'src')),
-    new ExtractTextPlugin("style.css"),
+    new ExtractTextPlugin("styles.css"),
     new WebpackSwPrecachePlugin(),
   ],
   module: {
