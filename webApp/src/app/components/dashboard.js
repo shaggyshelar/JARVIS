@@ -1,11 +1,9 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import SwipeableViews from 'react-swipeable-views';
 import FontIcon from 'material-ui/FontIcon';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader} from 'material-ui/Card';
 import Action from './action';
 import Location from './location';
-import Home from './home';
 import Settings from './setting';
 
 const styles = {
@@ -78,9 +76,6 @@ class Dashboard extends React.Component {
                         <Settings/>
                     </Tab>
                 </Tabs>
-                <img src="../../assets/images/jarvis144.png"/>
-                <img src="../../assets/images/jarvis192.png"/>
-                <img src="../../assets/images/jarvis48.png"/>
             </div>
         );
     }

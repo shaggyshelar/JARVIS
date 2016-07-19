@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardMedia} from 'material-ui/Card';
 import Toggle from 'material-ui/Toggle';
 
 const styles = {
