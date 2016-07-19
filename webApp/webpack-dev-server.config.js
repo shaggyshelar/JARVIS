@@ -3,39 +3,36 @@ const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const swPrecache = require('sw-precache');
 
 function WebpackSwPrecachePlugin(options) {
 }
 
-WebpackSwPrecachePlugin.prototype.apply = function(compiler) {
-    var rootDir = 'src/www';
+WebpackSwPrecachePlugin.prototype.apply = function (compiler) {
+  var rootDir = 'src/www';
 
-    var options = {
-      staticFileGlobs: [
-      '/src/app/*.css',
-      '/src/www/index.html',
-      '/src/app/layout/*.js',
-      '/src/app/smartHomeApp.js',
-      '/src/app/app.js',
-      '/src/app/routes/index.js',
-      '/node_modules/material-ui/{**,*}.{js,css}',
-      '/node_modules/**/**/*.{js,css}',
-      '/node_modules/**/*.{js,css}',
-      ],
-      stripPrefix: rootDir 
+  var options = {
+    staticFileGlobs: [
+      '/public/assets/images/*'
+    ],
+    stripPrefix: 'src',
+    runtimeCaching: [{
+      urlPattern: /^https:\/\/localhost\:3000\/dashboard/,
+      handler: 'fastest'
+    }],
   }
-    compiler.plugin("after-emit", (compilation, callback) => {
-        swPrecache.write(path.join(rootDir,"sw-precache-config.js"), options, function(err){
-            if (err) {
-                console.log("\n*** sw-precache file creation error: "+err);
-            } else {
-                console.log("\nCreated sw-precache file static/sw-precache-config.js");
-            }
-            callback(err);
-        })
-    });
+  compiler.plugin("after-emit", (compilation, callback) => {
+    swPrecache.write(path.join(rootDir, "sw-precache-config.js"), options, function (err) {
+      if (err) {
+        console.log("\n*** sw-precache file creation error: " + err);
+      } else {
+        console.log("\nCreated sw-precache file static/sw-precache-config.js");
+      }
+      callback(err);
+    })
+  });
 };
 
 const config = {
@@ -66,7 +63,7 @@ const config = {
     new webpack.NoErrorsPlugin(),
     // Moves files
     new TransferWebpackPlugin([
-      {from: 'www'},
+      { from: 'www' },
     ], path.resolve(__dirname, 'src')),
     new WebpackSwPrecachePlugin(),
   ],
@@ -82,27 +79,27 @@ const config = {
         test: /\.css$/,
         loaders: ['style', 'css']
       },
-      { 
+      {
         test: /\.ttf$/,
         loader: 'url-loader?limit=20000000'
       },
-      { 
+      {
         test: /\.svg$/,
         loader: 'url-loader?limit=20000000'
       },
-      { 
+      {
         test: /\.png$/,
         loader: 'url-loader?limit=20000000'
       },
-      { 
+      {
         test: /\.woff2$/,
         loader: 'url-loader?limit=20000000'
       },
-      { 
+      {
         test: /\.woff$/,
         loader: 'url-loader?limit=20000000'
       },
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"}
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" }
     ],
   },
 };

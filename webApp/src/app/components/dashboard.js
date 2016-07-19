@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
                     </Tab>
                     <Tab  icon={<FontIcon className="material-icons">star_border</FontIcon>}
                         label="Favorites">
-                       <div>
+                        <div>
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Actions"/>
                             </Card>
@@ -75,9 +75,12 @@ class Dashboard extends React.Component {
                     </Tab>
                     <Tab icon={<FontIcon className="material-icons">settings</FontIcon>}
                         label="Settings">
-                         <Settings/>
+                        <Settings/>
                     </Tab>
                 </Tabs>
+                <img src="../../assets/images/jarvis144.png"/>
+                <img src="../../assets/images/jarvis192.png"/>
+                <img src="../../assets/images/jarvis48.png"/>
             </div>
         );
     }
