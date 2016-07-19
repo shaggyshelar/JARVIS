@@ -91,9 +91,11 @@ class SmartHomeApp extends Component {
     }
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // var user = firebase.auth().currentUser;
         browserHistory.replace('/dashboard');
-        //firebase.auth().currentUser;
+        if(localStorage.getItem('currentSubscription')){
+          console.log('sending tru..........');
+          onSubscribtionChange(true);
+        }
       } else {
         browserHistory.replace('/login');
       }

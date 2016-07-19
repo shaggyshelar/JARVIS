@@ -47,7 +47,9 @@ class Settings extends React.Component {
                 <List>
                     <Subheader>General Setings</Subheader>
                     <Divider />
-                    <ListItem primaryText="Notifications" rightToggle={<Toggle onToggle={this.onNotificationToggle} />} />
+                    <ListItem primaryText="Notifications" rightToggle={
+                        <Toggle onToggle={this.onNotificationToggle} defaultToggled={this.props.isSubscribed}/>
+                    } />
                     <Divider />
                     <ListItem primaryText="Location Services" rightToggle={<Toggle onToggle={this.onLocationToggle}/>} />
                     <Divider />
@@ -91,7 +93,7 @@ class Settings extends React.Component {
 const mapStateToProps = (state) => {
     console.log(' Subscribed:', state.isSubscribed);
     return {
-        isSubscribed : state.isSubscribed
+        isSubscribed: state.isSubscribed
     };
 }
 
