@@ -1,4 +1,5 @@
 export default {
   showLoader:false,
-  isSubscribed: false
+  isSubscribed: false,
+  user: ''
 };

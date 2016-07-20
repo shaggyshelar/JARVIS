@@ -8,3 +8,9 @@ export function onSubscribtionChange(status) {
     };
 }
 
+export function onUserStatusChange(user) {
+    return {
+        type: types.UserLoggedInStatusChanged,
+        user: user
+    };
+}

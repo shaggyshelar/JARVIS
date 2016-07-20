@@ -15,6 +15,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Drawer from 'material-ui/Drawer';
 import {RouteHandler, browserHistory} from 'react-router';
 import firebase from 'firebase';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 import Login from './components/login';
 import Dashboard from './components/dashboard';
@@ -22,7 +23,7 @@ import Sidebar from './layout/sidebar';
 import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
 import 'material-design-icons/iconfont/material-icons.css';
-import {onSubscribtionChange} from './actions/firebaseActions';
+import {onSubscribtionChange, onUserStatusChange} from './actions/firebaseActions';
 
 const styles = {
   container: {
@@ -60,16 +61,14 @@ class SmartHomeApp extends Component {
 
   componentDidMount() {
     //var PropelClient = window.goog.propel.PropelClient;
-    let onSubscribtionChange = this.props.onSubscribtionChange; 
+    let onSubscribtionChange = this.props.onSubscribtionChange;
     if (propelClient) {
 
       //var propelClient = new PropelClient('./sw.js');
       propelClient.addEventListener('statuschange', function (event) {
-        console.log('insideeeeeeeeeeeeeeeeeee');
         if (event.permissionStatus === 'denied') {
           // Disable UI
         } else if (event.currentSubscription) {
-          console.log('setting true');
           onSubscribtionChange(true);
           if (!localStorage.getItem('currentSubscription')) {
             var user = firebase.auth().currentUser;
@@ -92,11 +91,14 @@ class SmartHomeApp extends Component {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         browserHistory.replace('/dashboard');
-        if(localStorage.getItem('currentSubscription')){
-          console.log('sending tru..........');
+        console.error('logged in');
+        if (localStorage.getItem('currentSubscription')) {
           onSubscribtionChange(true);
+          onUserStatusChange(user);
         }
       } else {
+        console.error('not logged');
+        onUserStatusChange(null);
         browserHistory.replace('/login');
       }
     });
@@ -144,6 +146,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubscribtionChange: (status) => {
       dispatch(onSubscribtionChange(status));
+    },
+    onUserStatusChange: (status) => {
+      dispatch(onUserStatusChange(status));
     }
   }
 }

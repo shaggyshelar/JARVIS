@@ -2,6 +2,7 @@ import React from 'react';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import Divider from 'material-ui/Divider';
 import AppBar from 'material-ui/AppBar';
 import Subheader from 'material-ui/Subheader';
@@ -47,7 +48,7 @@ class Sidebar extends React.Component {
                 open={this.props.isOpen}
                 onRequestChange={this.onRequestChange }
                 >
-                <AppBar iconStyleLeft={styles.app} title="Menu"/>
+                <AppBar iconStyleLeft={styles.app} title={this.props.user != '' ? "User" : "Menu"}/>
                 <MenuItem onTouchTap={this.props.closeDrawer}
                     leftIcon={<FontIcon className="material-icons">settings</FontIcon>} >
                     <Link to="/">Dashboard</Link>
@@ -79,4 +80,19 @@ class Sidebar extends React.Component {
     }
 }
 
-module.exports = Sidebar;
+const mapStateToProps = (state) => {
+    console.log('Email',state.user);
+  return {
+    user: state.user
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);
