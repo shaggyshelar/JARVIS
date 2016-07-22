@@ -20,6 +20,7 @@ const styles = {
     row: {
         marginRight: 0,
         marginLeft: 0,
+        backgroundColor:'rgb(48, 48, 48)'
     }
 };
 

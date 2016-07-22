@@ -11,7 +11,6 @@ class AddUser extends React.Component {
 
         const styles = {
             subHeader: {
-                backgroundColor: "whitesmoke",
                 fontSize: "16px",
                 fontWeight: "bold"
             },
@@ -26,7 +25,7 @@ class AddUser extends React.Component {
         }
 
         return (
-            <div>
+             <Paper zDepth={1} >
                 <Subheader style={styles.subHeader}>User Info</Subheader>
                 <Divider />
                 <Paper zDepth={2} >
@@ -54,7 +53,7 @@ class AddUser extends React.Component {
                         <RaisedButton label="Add User"  backgroundColor="#66CC33" />
                     </div>
                 </div>
-            </div>
+            </Paper>
         );
     }
 }

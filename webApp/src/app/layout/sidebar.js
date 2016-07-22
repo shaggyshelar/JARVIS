@@ -59,7 +59,7 @@ class Sidebar extends React.Component {
                 <Divider />
                 <Link to="/actions"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">flash_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Actions</MenuItem></Link>
                 <Divider />
-                <Link to="/devices"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">devices</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Devices</MenuItem></Link>
+                <Link to="/devices" ><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">devices</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Devices</MenuItem></Link>
                 <Divider />
                 <Link to="/locations"><MenuItem onTouchTap={this.props.closeDrawer} leftIcon={<FontIcon className="material-icons">location_on</FontIcon>} rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}>Locations</MenuItem></Link>
                 <Divider />

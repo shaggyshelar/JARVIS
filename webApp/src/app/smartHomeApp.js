@@ -18,7 +18,6 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
 import spacing from 'material-ui/styles/spacing';
 
-
 const styles = {
   container: {
     textAlign: 'center',
@@ -31,10 +30,8 @@ const styles = {
   },
 };
 
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  }
+const muiTheme = getMuiTheme(darkBaseTheme, {
+  list: { color: "#303030" }
 });
 
 class SmartHomeApp extends Component {

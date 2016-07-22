@@ -11,12 +11,13 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Actions from '../actions';
 import {onSubscribtionChange} from '../actions/firebaseActions';
+import Paper from 'material-ui/Paper';
 
 const styles = {
     card: {
         marginTop: 10,
         backgroundColor: "#D9E4E4",
-    }
+    },
 };
 
 class Settings extends React.Component {
@@ -42,8 +43,8 @@ class Settings extends React.Component {
     }
     render() {
         return (
-            <div >
-                <List>
+              <Paper zDepth={1}>
+                <List >
                     <Subheader>General Setings</Subheader>
                     <Divider />
                     <ListItem primaryText="Notifications" rightToggle={
@@ -83,8 +84,7 @@ class Settings extends React.Component {
                     <ListItem primaryText="Connection Lost" leftCheckbox={<Checkbox />} />
                     <Divider />
                 </List>
-
-            </div>
+            </Paper>
         );
     }
 }

@@ -18,7 +18,6 @@ const styles = {
     },
     card: {
         marginTop: 10,
-        backgroundColor: "#D9E4E4",
     }
 };
 

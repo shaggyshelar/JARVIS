@@ -4,6 +4,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import Toggle from 'material-ui/Toggle';
 import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 
 const styles = {
     subHeader: {
@@ -25,7 +26,7 @@ class AddLocation extends React.Component {
     render() {
 
         return (
-            <div>
+             <Paper  zDepth={1}>
                 <TextField hintText="Name" style={styles.userPage} underlineShow={false} />
                 <Divider />
                 <TextField hintText="Icon" style={styles.userPage} underlineShow={false} />
@@ -43,7 +44,7 @@ class AddLocation extends React.Component {
                         <RaisedButton label="Add Location"  backgroundColor="#66CC33" />
                     </div>
                 </div>
-            </div>
+            </Paper>
         );
     }
 }
