@@ -11,6 +11,7 @@ import firebase from 'firebase';
 import Sidebar from './layout/sidebar';
 import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
+import '../www/assets/css/slick.css';
 import 'material-design-icons/iconfont/material-icons.css';
 import {onSubscribtionChange} from './actions/firebaseActions';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
