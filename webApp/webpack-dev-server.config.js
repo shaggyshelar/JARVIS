@@ -15,7 +15,10 @@ WebpackSwPrecachePlugin.prototype.apply = function (compiler) {
 
   var options = {
     staticFileGlobs: [
-      '/public/assets/images/*'
+        'public/app.js',
+        'public/styles.css',
+        'public/assets/images/*.png',
+        'public/favicon.ico'
     ],
     stripPrefix: 'src',
     runtimeCaching: [{
@@ -81,23 +84,23 @@ const config = {
       },
       {
         test: /\.ttf$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
       {
         test: /\.png$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
       {
         test: /\.woff2$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
       {
         test: /\.woff$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" }
     ],

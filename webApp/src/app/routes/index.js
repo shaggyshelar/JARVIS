@@ -17,6 +17,7 @@ import AddDevice from '../components/addDevice';
 import AddAction from '../components/addAction';
 import AddUser from '../components/addUser';
 import AddLocation from '../components/addLocation';
+import Notification from '../components/notification';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -46,6 +47,7 @@ render((
         <Route path="addAction" component={AddAction} />
         <Route path="addLocation" component={AddLocation} />
         <Route path="addUser" component={AddUser} />
+        <Route path="notification" component={Notification} />
       </Route>
     </Router>
   </Provider>

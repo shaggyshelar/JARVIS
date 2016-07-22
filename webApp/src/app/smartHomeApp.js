@@ -13,18 +13,27 @@ import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
 import 'material-design-icons/iconfont/material-icons.css';
 import {onSubscribtionChange} from './actions/firebaseActions';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
+import spacing from 'material-ui/styles/spacing';
+
 
 const styles = {
   container: {
     textAlign: 'center',
     paddingTop: 200,
   },
+  content: {
+  },
+  contentWhenMedium: {
+    marginLeft: '201px',
+  },
 };
 
 const muiTheme = getMuiTheme({
   palette: {
     accent1Color: deepOrange500,
-  },
+  }
 });
 
 class SmartHomeApp extends Component {
@@ -50,7 +59,7 @@ class SmartHomeApp extends Component {
 
   componentDidMount() {
     //var PropelClient = window.goog.propel.PropelClient;
-    let onSubscribtionChange = this.props.onSubscribtionChange; 
+    let onSubscribtionChange = this.props.onSubscribtionChange;
     if (propelClient) {
 
       //var propelClient = new PropelClient('./sw.js');
@@ -82,7 +91,7 @@ class SmartHomeApp extends Component {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         browserHistory.replace('/dashboard');
-        if(localStorage.getItem('currentSubscription')){
+        if(localStorage.getItem('currentSubscription')) {
           console.log('sending tru..........');
           onSubscribtionChange(true);
         }
@@ -112,12 +121,28 @@ class SmartHomeApp extends Component {
   }
 
   render() {
+    let {
+      open,
+    } = this.state;
+    let docked = false;
+    let showMenuIconButton = true;
+    if (this.props.width === LARGE || this.props.width === MEDIUM) {
+      docked = true;
+      open = true;
+      showMenuIconButton = false;
+      styles.content = Object.assign(styles.content, styles.contentWhenMedium);
+    }
+    else{
+       styles.content = {marginLeft:0};
+    }
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-          <Sidebar isOpen={this.state.open} closeDrawer={this.closeDrawer} />
-          <Header openDrawer={this.openDrawer} />
-          {this.props.children}
+          <Header openDrawer={this.openDrawer} showMenuIconButton={showMenuIconButton}/>
+            <div style={styles.content}>
+              {this.props.children}
+            </div>
+          <Sidebar isOpen={open} docked={docked} closeDrawer={this.closeDrawer}/>
         </div>
       </MuiThemeProvider>
     );
@@ -138,7 +163,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(
+export default withWidth()(connect(
   mapStateToProps,
   mapDispatchToProps
-)(SmartHomeApp);
+)(SmartHomeApp));
