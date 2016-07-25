@@ -4,7 +4,7 @@ const buildPath = path.resolve(__dirname, 'public');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const fs = require("fs");
 const swPrecache = require('sw-precache');
 
 function WebpackSwPrecachePlugin(options) {
@@ -27,7 +27,12 @@ WebpackSwPrecachePlugin.prototype.apply = function(compiler) {
             if (err) {
                 console.log("\n*** sw-precache file creation error: "+err);
             } else {
-                console.log("\nCreated sw-precache file static/sw-precache-config.js");
+              fs.readFile("public/sw.js", "utf-8", function(err, data) {
+                fs.appendFile('public/sw-precache-config.js', data, function (err) {
+                  console.log("\nCreated sw-precache file static/sw-precache-config.js");
+                });
+              });
+            
             }
             callback(err);
         })
