@@ -28,9 +28,9 @@ class Device extends Component {
     }
 
     componentDidMount() {
-        let firebaseRef = firebase.database().ref('buttons');
+        this.firebaseRef = firebase.database().ref('buttons');
         var setButton = this.setButton;
-        firebaseRef.on('value', function (snapshot) {
+        this.firebaseRef.on('value', function (snapshot) {
             var items = [];
             snapshot.forEach(function (childSnapshot) {
                 var item = childSnapshot.val();
@@ -39,6 +39,10 @@ class Device extends Component {
             });
             setButton(items);
         });
+    }
+
+    componentWillUnmount() {
+        this.firebaseRef.off();
     }
 
     setButton(buttons) {
@@ -61,7 +65,7 @@ class Device extends Component {
                     {this.state.buttons.map(function (item, i) {
                         return (
                             <ListItem key={i}
-                                primaryText={ item.Name + " " + item.key}
+                                primaryText={ item.Name}
                                 rightToggle={
                                     <Toggle onToggle={this.onButtonStateToggle.bind(null, item) } defaultToggled={item.IsOn}/>
                                 }
