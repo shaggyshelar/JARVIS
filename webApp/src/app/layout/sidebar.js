@@ -149,7 +149,6 @@ class Sidebar extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('Email', state.user);
     return {
         user: state.user
     };

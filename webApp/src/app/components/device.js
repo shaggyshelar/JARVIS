@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import {Card, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
 import Slider from 'react-slick';
+import firebase from 'firebase';
+import Toggle from 'material-ui/Toggle';
+
 const styles = {
     card: {
         marginTop: 20,
@@ -19,7 +22,43 @@ const styles = {
         width: "90%"
     }
 };
-class Device extends React.Component {
+class Device extends Component {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = {
+            buttons: [],
+        };
+        this.setButton = this.setButton.bind(this);
+        this.onButtonStateToggle = this.onButtonStateToggle.bind(this);
+    }
+
+    componentDidMount() {
+        let firebaseRef = firebase.database().ref('buttons');
+        var setButton = this.setButton;
+        firebaseRef.on('value', function (snapshot) {
+            var items = [];
+            snapshot.forEach(function (childSnapshot) {
+                var item = childSnapshot.val();
+                item['key'] = childSnapshot.key;
+                items.push(item);
+            });
+            setButton(items);
+        });
+    }
+
+    setButton(buttons) {
+        this.setState({ buttons: buttons });
+    }
+
+    onButtonStateToggle(param, event, status) {
+        firebase.database().ref('buttons/' + param.key).update({
+            IsOn: status,
+            Name: param.Name,
+            Type: param.Type
+        });
+    }
+
     render() {
         var settings = {
             dots: true,
@@ -39,43 +78,17 @@ class Device extends React.Component {
                         <div><img src='../../assets/images/nature1.png' width="100%" /></div>
                     </Slider>
                 </div>
-                <Card>
-                    <CardText style={styles.cardText}>
-                        <p>
-                            <FontIcon className="material-icons">star</FontIcon> &nbsp; &nbsp;
-                            <span style={styles.header}>Thermostat</span>
-                            <span className="pull-right">Away &nbsp; &nbsp; </span>
-                        </p>
-                    </CardText>
-                </Card>
-                <Card>
-                    <CardText style={styles.cardText}>
-                        <p>
-                            <FontIcon className="material-icons">kitchen</FontIcon> &nbsp; &nbsp;
-                            <span style={styles.header}>Coffee Machine</span>
-                            <span className="pull-right">Finished &nbsp; &nbsp; </span>
-                        </p>
-                    </CardText>
-                </Card>
-                <Card >
-                    <CardText style={styles.cardText}>
-                        <p>
-                            <FontIcon className="material-icons">share</FontIcon> &nbsp; &nbsp;
-                            <span style={styles.header}>House Security</span>
-                            <span className="pull-right">Unarmerd &nbsp; &nbsp; </span>
-                        </p>
-                    </CardText>
-                </Card>
-                <Card>
-                    <CardText style={styles.cardText}>
-                        <p>
-                            <FontIcon className="material-icons">whatshot</FontIcon> &nbsp; &nbsp;
-                            <span style={styles.header}>Fan</span>
-                            <span className="pull-right">Working &nbsp; &nbsp; </span>
-                        </p>
-                    </CardText>
-                </Card>
-
+                {this.state.buttons.map(function (item, i) {
+                    return (
+                        <Card key={i}>
+                            <CardText style={styles.cardText}>
+                                <FontIcon className="material-icons col-xs-2 col-md-1">brightness_low</FontIcon> &nbsp; &nbsp;
+                                <span style={styles.header}> {item.Name} {item.key}</span>
+                                <span className="pull-right"><Toggle onToggle={this.onButtonStateToggle.bind(null, item) }  defaultToggled={item.IsOn}/> </span>
+                            </CardText>
+                        </Card>
+                    );
+                }, this) }
             </div>
         );
     }
