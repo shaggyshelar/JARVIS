@@ -4,7 +4,7 @@ const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const fs = require("fs");
 const swPrecache = require('sw-precache');
 
 function WebpackSwPrecachePlugin(options) {
@@ -15,23 +15,23 @@ WebpackSwPrecachePlugin.prototype.apply = function (compiler) {
 
   var options = {
     staticFileGlobs: [
-        'public/app.js',
-        'public/styles.css',
-        'public/assets/images/*.png',
-        'public/favicon.ico'
+      'app.js',
+      'styles.css',
+      'assets/images/*.png',
+      'favicon.ico'
     ],
     stripPrefix: 'src',
-    runtimeCaching: [{
-      urlPattern: /^https:\/\/localhost\:3000\/dashboard/,
-      handler: 'fastest'
-    }],
   }
   compiler.plugin("after-emit", (compilation, callback) => {
     swPrecache.write(path.join(rootDir, "sw-precache-config.js"), options, function (err) {
       if (err) {
         console.log("\n*** sw-precache file creation error: " + err);
       } else {
-        console.log("\nCreated sw-precache file static/sw-precache-config.js");
+        fs.readFile("src/www/sw.js", "utf-8", function (err, data) {
+          fs.appendFile('src/www/sw-precache-config.js', data, function (err) {
+            console.log("\nCreated sw-precache file static/sw-precache-config.js");
+          });
+        });
       }
       callback(err);
     })

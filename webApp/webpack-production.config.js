@@ -32,7 +32,6 @@ WebpackSwPrecachePlugin.prototype.apply = function(compiler) {
                   console.log("\nCreated sw-precache file static/sw-precache-config.js");
                 });
               });
-            
             }
             callback(err);
         })

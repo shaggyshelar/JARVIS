@@ -1,18 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import {Card, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-import Slider from 'react-slick';
 import firebase from 'firebase';
 import Toggle from 'material-ui/Toggle';
+import Paper from 'material-ui/Paper';
+import {List, ListItem} from 'material-ui/List';
 
 const styles = {
-    card: {
-        marginTop: 20,
-    },
-    cardText: {
-        padding: 4
-    },
     header: {
         fontSize: 18
     },
@@ -60,36 +54,23 @@ class Device extends Component {
     }
 
     render() {
-        var settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
-        };
 
         return (
-            <div>
-                <div  style={styles.container}>
-                    <Slider {...settings}>
-                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
-                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
-                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
-                        <div><img src='../../assets/images/nature1.png' width="100%" /></div>
-                    </Slider>
-                </div>
-                {this.state.buttons.map(function (item, i) {
-                    return (
-                        <Card key={i}>
-                            <CardText style={styles.cardText}>
-                                <FontIcon className="material-icons col-xs-2 col-md-1">brightness_low</FontIcon> &nbsp; &nbsp;
-                                <span style={styles.header}> {item.Name} {item.key}</span>
-                                <span className="pull-right"><Toggle onToggle={this.onButtonStateToggle.bind(null, item) }  defaultToggled={item.IsOn}/> </span>
-                            </CardText>
-                        </Card>
-                    );
-                }, this) }
-            </div>
+            <Paper zDepth={1}>
+                <List >
+                    {this.state.buttons.map(function (item, i) {
+                        return (
+                            <ListItem key={i}
+                                primaryText={ item.Name + " " + item.key}
+                                rightToggle={
+                                    <Toggle onToggle={this.onButtonStateToggle.bind(null, item) } defaultToggled={item.IsOn}/>
+                                }
+                                leftIcon={<FontIcon className="material-icons">brightness_low</FontIcon>}
+                                />
+                        );
+                    }, this) }
+                </List >
+            </Paper>
         );
     }
 }

@@ -27,6 +27,7 @@ const styles = {
     paddingTop: 200,
   },
   content: {
+    marginLeft:'1px'
   },
   contentWhenMedium: {
     marginLeft: '201px',
@@ -126,20 +127,21 @@ class SmartHomeApp extends Component {
     } = this.state;
     let docked = false;
     let showMenuIconButton = true;
+    let childStyle;
     if (this.props.width === LARGE || this.props.width === MEDIUM) {
       docked = true;
       open = true;
       showMenuIconButton = false;
-      styles.content = Object.assign(styles.content, styles.contentWhenMedium);
+      childStyle = Object.assign(styles.content, styles.contentWhenMedium);
     }
     else{
-       styles.content = {marginLeft:0};
+       childStyle = {marginLeft:'1px'};
     }
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Header openDrawer={this.openDrawer} showMenuIconButton={showMenuIconButton}/>
-            <div style={styles.content}>
+            <div style={childStyle}>
               {this.props.children}
             </div>
           <Sidebar isOpen={open} docked={docked} closeDrawer={this.closeDrawer}/>

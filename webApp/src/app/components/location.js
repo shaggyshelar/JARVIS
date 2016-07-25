@@ -1,48 +1,72 @@
 import React from 'react';
 import {Card, CardText} from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
+import Slider from 'react-slick';
 
 const styles = {
     card: {
         marginTop: 20,
     },
-    cardText:{
+    cardText: {
         padding: 4
     },
-    header:{
+    header: {
         fontSize: 18
     },
-    row:{
+    row: {
         marginRight: 0,
         marginLeft: 0,
-        backgroundColor:'rgb(48, 48, 48)'
+        backgroundColor: 'rgb(48, 48, 48)'
+    },
+    container: {
+        margin: "0 auto",
+        padding: "10px",
+        width: "90%"
     }
 };
 class Location extends React.Component {
     render() {
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+
         return (
-            <div className="row" style={styles.row}>
-                <div className="col-md-6">
-                    <Card style={styles.card}>
-                        <CardText style={styles.cardText}>
-                            <p>
-                                <FontIcon className="material-icons">kitchen</FontIcon> &nbsp;&nbsp;
-                                <span style={styles.header}>Kitchen</span>
-                                <span className="pull-right">For Mum &nbsp;&nbsp;</span>
-                            </p>
-                        </CardText>
-                    </Card>
+            <div>
+                <div style={styles.container}>
+                    <Slider {...settings}>
+                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
+                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
+                        <div><img src='../../assets/images/nature1.png' width="100%"/></div>
+                        <div><img src='../../assets/images/nature1.png' width="100%" /></div>
+                    </Slider>
                 </div>
-                <div className="col-md-6">
-                     <Card style={styles.card}>
-                        <CardText style={styles.cardText}>
-                            <p>
-                                <FontIcon className="material-icons">add_location</FontIcon> &nbsp;&nbsp;
-                                <span style={styles.header}>WC</span>
-                                <span className="pull-right">Occupied &nbsp;&nbsp;</span>
-                            </p>
-                        </CardText>
-                    </Card>
+                <div className="row" style={styles.row}>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardText style={styles.cardText}>
+                                <p>
+                                    <FontIcon className="material-icons">kitchen</FontIcon> &nbsp; &nbsp;
+                                    <span style={styles.header}>Kitchen</span>
+                                    <span className="pull-right">For Mum &nbsp; &nbsp; </span>
+                                </p>
+                            </CardText>
+                        </Card>
+                    </div>
+                    <div className="col-md-6">
+                        <Card style={styles.card}>
+                            <CardText style={styles.cardText}>
+                                <p>
+                                    <FontIcon className="material-icons">add_location</FontIcon> &nbsp; &nbsp;
+                                    <span style={styles.header}>WC</span>
+                                    <span className="pull-right">Occupied &nbsp; &nbsp; </span>
+                                </p>
+                            </CardText>
+                        </Card>
+                    </div>
                 </div>
             </div>
         );
