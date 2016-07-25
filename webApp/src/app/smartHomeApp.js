@@ -8,15 +8,18 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Drawer from 'material-ui/Drawer';
 import {RouteHandler, browserHistory} from 'react-router';
 import firebase from 'firebase';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import {onSubscribtionChange} from './actions/firebaseActions';
+import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
+import spacing from 'material-ui/styles/spacing';
+
+import Login from './components/login';
+import Dashboard from './components/dashboard';
 import Sidebar from './layout/sidebar';
 import Header from './layout/header';
 import '../www/assets/css/bootstrap.min.css';
 import '../www/assets/css/slick.css';
 import 'material-design-icons/iconfont/material-icons.css';
-import {onSubscribtionChange} from './actions/firebaseActions';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import withWidth, {MEDIUM, LARGE} from 'material-ui/utils/withWidth';
-import spacing from 'material-ui/styles/spacing';
 
 const styles = {
   container: {
@@ -62,11 +65,9 @@ class SmartHomeApp extends Component {
 
       //var propelClient = new PropelClient('./sw.js');
       propelClient.addEventListener('statuschange', function (event) {
-        console.log('insideeeeeeeeeeeeeeeeeee');
         if (event.permissionStatus === 'denied') {
           // Disable UI
         } else if (event.currentSubscription) {
-          console.log('setting true');
           onSubscribtionChange(true);
           if (!localStorage.getItem('currentSubscription')) {
             var user = firebase.auth().currentUser;
@@ -90,10 +91,11 @@ class SmartHomeApp extends Component {
       if (user) {
         browserHistory.replace('/dashboard');
         if(localStorage.getItem('currentSubscription')) {
-          console.log('sending tru..........');
           onSubscribtionChange(true);
+          onUserStatusChange(user);
         }
       } else {
+        onUserStatusChange(null);
         browserHistory.replace('/login');
       }
     });
@@ -157,6 +159,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubscribtionChange: (status) => {
       dispatch(onSubscribtionChange(status));
+    },
+    onUserStatusChange: (status) => {
+      dispatch(onUserStatusChange(status));
     }
   }
 }

@@ -7,6 +7,10 @@ export default function SmartHomeReducer(state = initialState, action) {
             return Object.assign({}, state, {
                 isSubscribed: action.status
             });
+        case types.UserLoggedInStatusChanged:
+            return Object.assign({}, state, {
+                user: action.user
+            });
         default:
             return state;
     }

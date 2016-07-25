@@ -90,7 +90,6 @@ class Settings extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(' Subscribed:', state.isSubscribed);
     return {
         isSubscribed: state.isSubscribed
     };
