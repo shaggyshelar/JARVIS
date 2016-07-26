@@ -4,6 +4,7 @@ import Divider from 'material-ui/Divider';
 import Slider from 'material-ui/Slider';
 import FontIcon from 'material-ui/FontIcon';
 import Toggle from 'material-ui/Toggle';
+import Paper from 'material-ui/Paper';
 
 const styles = {
     lightBulb: {
@@ -20,7 +21,6 @@ const styles = {
     row: {
         marginRight: 0,
         marginLeft: 0,
-        backgroundColor:'rgb(48, 48, 48)'
     }
 };
 
@@ -34,8 +34,8 @@ class Action extends React.Component {
 
     render() {
         return (
-            <div>
-                <div  className="row" style={styles.row}>
+            <Paper>
+                <div className="row" style={styles.row}>
                     <div className="col-md-6">
                         <Card style={styles.card}>
                             <CardHeader title="Lawn Lights Brightness"/>
@@ -90,7 +90,7 @@ class Action extends React.Component {
                         </Card>
                     </div>
                 </div>
-            </div>
+            </Paper>
         );
     }
 }

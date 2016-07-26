@@ -22,7 +22,7 @@ class AddUser extends React.Component {
                 marginTop: "15px",
                 marginBottom: "15px"
             },
-        }
+        };
 
         return (
              <Paper zDepth={1} >

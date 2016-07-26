@@ -18,6 +18,9 @@ const styles = {
     },
     card: {
         backgroundColor: 'rgb(0, 151, 167)'
+    },
+    cardHeader: {
+        paddingRight: '1px'
     }
 };
 
@@ -66,7 +69,7 @@ class Sidebar extends React.Component {
                 containerStyle={{ zIndex: zIndex.drawer - 100 }}
                 >
                 <Card style={styles.card}>
-                    <CardHeader
+                    <CardHeader textStyle={styles.cardHeader}
                         title="Salauddin"
                         subtitle="sal@gmail.com"
                         avatar="../../assets/images/nature1.png" />

@@ -20,7 +20,7 @@ const styles = {
         marginTop: "15px",
         marginBottom: "15px"
     },
-}
+};
 
 class AddLocation extends React.Component {
     render() {

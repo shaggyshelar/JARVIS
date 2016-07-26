@@ -27,16 +27,12 @@ const styles = {
     paddingTop: 200,
   },
   content: {
-    marginLeft:'1px'
+    marginLeft: '1px'
   },
   contentWhenMedium: {
     marginLeft: '201px',
   },
 };
-
-const muiTheme = getMuiTheme(darkBaseTheme, {
-  list: { color: "#303030" }
-});
 
 class SmartHomeApp extends Component {
   constructor(props, context) {
@@ -46,9 +42,10 @@ class SmartHomeApp extends Component {
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.openDrawer = this.openDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
+    this.changeTheme = this.changeTheme.bind(this);
 
     this.state = {
-      open: false,
+      open: false
     };
   }
 
@@ -60,6 +57,18 @@ class SmartHomeApp extends Component {
 
 
   componentDidMount() {
+    if (localStorage.getItem("selectedTheme")) {
+      if (localStorage.getItem("selectedTheme") === "darkTheme") {
+        this.setState({
+          currentTheme: getMuiTheme(darkBaseTheme)
+        });
+      }
+      else {
+        this.setState({
+          currentTheme: getMuiTheme()
+        });
+      }
+    }
     //var PropelClient = window.goog.propel.PropelClient;
     let onSubscribtionChange = this.props.onSubscribtionChange;
     if (propelClient) {
@@ -91,7 +100,7 @@ class SmartHomeApp extends Component {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         browserHistory.replace('/dashboard');
-        if(localStorage.getItem('currentSubscription')) {
+        if (localStorage.getItem('currentSubscription')) {
           onSubscribtionChange(true);
           onUserStatusChange(user);
         }
@@ -120,6 +129,18 @@ class SmartHomeApp extends Component {
       open: false,
     });
   }
+  changeTheme(theme) {
+    if (theme === "darkTheme")
+      this.setState({
+        currentTheme: getMuiTheme(darkBaseTheme)
+      });
+    else {
+      this.setState({
+        currentTheme: getMuiTheme()
+      });
+    }
+    localStorage.setItem("selectedTheme",theme);
+  }
 
   render() {
     let {
@@ -134,16 +155,16 @@ class SmartHomeApp extends Component {
       showMenuIconButton = false;
       childStyle = Object.assign(styles.content, styles.contentWhenMedium);
     }
-    else{
-       childStyle = {marginLeft:'1px'};
+    else {
+      childStyle = { marginLeft: '1px' };
     }
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
+      <MuiThemeProvider muiTheme={this.state.currentTheme}>
         <div>
-          <Header openDrawer={this.openDrawer} showMenuIconButton={showMenuIconButton}/>
-            <div style={childStyle}>
-              {this.props.children}
-            </div>
+          <Header openDrawer={this.openDrawer} changeTheme={this.changeTheme} showMenuIconButton={showMenuIconButton}/>
+          <div style={childStyle}>
+            {this.props.children}
+          </div>
           <Sidebar isOpen={open} docked={docked} closeDrawer={this.closeDrawer}/>
         </div>
       </MuiThemeProvider>

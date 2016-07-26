@@ -25,6 +25,8 @@ class Header extends React.Component {
                             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
                             anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
                             >
+                            <MenuItem primaryText="Dark Theme" onTouchTap={this.props.changeTheme.bind(null,"darkTheme")}/>
+                            <MenuItem primaryText="Light Theme" onTouchTap={this.props.changeTheme.bind(null,"lightTheme")}/>
                             <MenuItem primaryText="Refresh" />
                             <MenuItem primaryText="Help" />
                             <MenuItem primaryText="Sign out" />

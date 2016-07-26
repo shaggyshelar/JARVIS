@@ -43,8 +43,8 @@ class Settings extends React.Component {
     }
     render() {
         return (
-              <Paper zDepth={1}>
-                <List >
+              <Paper >
+                <List>
                     <Subheader>General Setings</Subheader>
                     <Divider />
                     <ListItem primaryText="Notifications" rightToggle={
