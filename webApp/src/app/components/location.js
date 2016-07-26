@@ -7,6 +7,7 @@ import Paper from 'material-ui/Paper';
 const styles = {
     card: {
         marginTop: 20,
+        boxShadow: "none"
     },
     cardText: {
         padding: 4

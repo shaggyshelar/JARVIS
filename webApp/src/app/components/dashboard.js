@@ -5,6 +5,7 @@ import {Card, CardHeader} from 'material-ui/Card';
 import Action from './action';
 import Location from './location';
 import Settings from './setting';
+import Divider from 'material-ui/Divider';
 
 const styles = {
     headline: {
@@ -44,17 +45,23 @@ class Dashboard extends React.Component {
                     <Tab icon={<FontIcon className="material-icons">home</FontIcon>}
                         label="Home">
                         <div>
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Actions"/>
                             </Card>
+                            <Divider />
                             <Action />
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Places"/>
                             </Card>
+                            <Divider />
                             <Location />
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Devices"/>
                             </Card>
+                            <Divider />
                         </div>
                     </Tab>
                     <Tab  icon={<FontIcon className="material-icons">star_border</FontIcon>}
@@ -63,10 +70,12 @@ class Dashboard extends React.Component {
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Actions"/>
                             </Card>
+                            <Divider />
                             <Action />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Places"/>
                             </Card>
+                            <Divider />
                             <Location />
                         </div>
                     </Tab>

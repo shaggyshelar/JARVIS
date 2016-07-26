@@ -16,7 +16,8 @@ const styles = {
         marginBottom: 0,
     },
     card: {
-        marginTop: 20
+        marginTop: 20,
+        boxShadow: "none"
     },
     row: {
         marginRight: 0,
