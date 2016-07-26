@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import Toggle from 'material-ui/Toggle';
 import Paper from 'material-ui/Paper';
 import {List, ListItem} from 'material-ui/List';
+import CircularProgress from 'material-ui/CircularProgress';
 
 const styles = {
     header: {
@@ -14,6 +15,9 @@ const styles = {
         margin: "0 auto",
         padding: "10px",
         width: "90%"
+    },
+    loader:{
+        marginLeft:"40%"
     }
 };
 class Device extends Component {
@@ -62,6 +66,7 @@ class Device extends Component {
         return (
             <Paper zDepth={1}>
                 <List >
+                    {this.state.buttons.length === 0 ? <CircularProgress style={styles.loader}/> : <div></div>}
                     {this.state.buttons.map(function (item, i) {
                         return (
                             <ListItem key={i}
