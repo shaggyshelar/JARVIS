@@ -161,7 +161,7 @@ class SmartHomeApp extends Component {
     return (
       <MuiThemeProvider muiTheme={this.state.currentTheme}>
         <div>
-          <Header openDrawer={this.openDrawer} changeTheme={this.changeTheme} showMenuIconButton={showMenuIconButton}/>
+          <Header style={childStyle} openDrawer={this.openDrawer} changeTheme={this.changeTheme} showMenuIconButton={showMenuIconButton}/>
           <div style={childStyle}>
             {this.props.children}
           </div>
