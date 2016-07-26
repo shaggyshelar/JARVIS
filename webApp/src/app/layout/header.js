@@ -10,7 +10,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 class Header extends React.Component {
     render() {
         return (
-            <AppBar style={this.props.style}
+            <AppBar titleStyle={this.props.style}
                 title="Smart Home"
                 onLeftIconButtonTouchTap={this.props.openDrawer}
                 iconElementRight={
