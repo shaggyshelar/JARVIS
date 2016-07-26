@@ -1,0 +1,114 @@
+{
+  "buttons" : {
+    "button1" : {
+      "IsOn" : false,
+      "Name" : "TV Button",
+      "Type" : "Light"
+    },
+    "button2" : {
+      "IsOn" : true,
+      "Name" : "Ceiling Light",
+      "Type" : "Light"
+    }
+  },
+  "channels" : {
+    "firebase" : {
+      "name" : "firebase"
+    },
+    "flux" : {
+      "name" : "flux"
+    },
+    "react" : {
+      "name" : "react"
+    },
+    "webpack" : {
+      "name" : "webpack"
+    }
+  },
+  "dimmers" : {
+    "dimmer1" : {
+      "CurrentValue" : 3,
+      "Name" : "Bedroom Fan 1"
+    }
+  },
+  "messages" : {
+    "firebase" : {
+      "fb_first" : {
+        "author" : "Hendrik Swanepoel",
+        "date" : "Wed, 08 Jul 2015 18:14:27 GMT",
+        "message" : "First message in firebase",
+        "profilePic" : "http://www.gravatar.com/avatar/a424e1b0ab3a8dee82c25ae0f0804107?s=48&d=identicon"
+      },
+      "fb_second" : {
+        "author" : "Stewart Scott",
+        "date" : "Wed, 08 Jul 2015 18:14:32 GMT",
+        "message" : "Second message in firebase",
+        "profilePic" : "http://www.gravatar.com/avatar/f544faf10969339692d6d0474050f8fe?s=48&d=identicon"
+      }
+    },
+    "flux" : {
+      "flux_first" : {
+        "author" : "Hendrik Swanepoel",
+        "date" : "Wed, 08 Jul 2015 18:14:27 GMT",
+        "message" : "First message in flux",
+        "profilePic" : "http://www.gravatar.com/avatar/a424e1b0ab3a8dee82c25ae0f0804107?s=48&d=identicon"
+      },
+      "flux_second" : {
+        "author" : "Stewart Scott",
+        "date" : "Wed, 08 Jul 2015 18:14:32 GMT",
+        "message" : "Second message in flux",
+        "profilePic" : "http://www.gravatar.com/avatar/f544faf10969339692d6d0474050f8fe?s=48&d=identicon"
+      }
+    },
+    "react" : {
+      "react_first" : {
+        "author" : "Hendrik Swanepoel",
+        "date" : "Wed, 08 Jul 2015 18:14:27 GMT",
+        "message" : "First message in react",
+        "profilePic" : "http://www.gravatar.com/avatar/a424e1b0ab3a8dee82c25ae0f0804107?s=48&d=identicon"
+      },
+      "react_second" : {
+        "author" : "Stewart Scott",
+        "date" : "Wed, 08 Jul 2015 18:14:32 GMT",
+        "message" : "Second message in react",
+        "profilePic" : "http://www.gravatar.com/avatar/f544faf10969339692d6d0474050f8fe?s=48&d=identicon"
+      }
+    },
+    "webpack" : {
+      "wp_first" : {
+        "author" : "Hendrik Swanepoel",
+        "date" : "Wed, 08 Jul 2015 18:14:27 GMT",
+        "message" : "First message in webpack",
+        "profilePic" : "http://www.gravatar.com/avatar/a424e1b0ab3a8dee82c25ae0f0804107?s=48&d=identicon"
+      },
+      "wp_second" : {
+        "author" : "Stewart Scott",
+        "date" : "Wed, 08 Jul 2015 18:14:32 GMT",
+        "message" : "Second message in webpack",
+        "profilePic" : "http://www.gravatar.com/avatar/f544faf10969339692d6d0474050f8fe?s=48&d=identicon"
+      }
+    }
+  },
+  "modes" : {
+    "mode1" : {
+      "Name" : "Romantic"
+    }
+  },
+  "rooms" : {
+    "room1" : {
+      "Name" : "Living Room"
+    }
+  },
+  "subscriptions" : {
+    "-KNWy1D2ixt38O02wEbo" : {
+      "date" : "Mon, 25 Jul 2016 12:12:05 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "cJJrp5ioXqo:APA91bHZbVpjaSxn3lzLpMYtu8v8jGtDVxPE3pfK3yQtukJHjv2tfX0ayE3QxC1auokvTyCF69i_ALh-kC64UdJATs2QJAtE7QtHOfSnV8Is6eDS2uPSANxN5DR_chEqTZPt1GIAZ-uY"
+    },
+    "-KNX9wfG4OozgyyxGpId" : {
+      "date" : "Mon, 25 Jul 2016 13:08:30 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "eZVC_yIq7IY:APA91bGwqCnayjK1btE9ZOnBVRIbkY-pIu6hxWgmjRFBwbGwLbyZ3ds72zXBoTx9_B05dQwPO9S87Gehsp6ENCsTiAl5MmV_qzuYHMxlKAFrbAM0EEfMnjKc8YthnNM5KkT1avQ7XaS7"
+    }
+  }
+}
