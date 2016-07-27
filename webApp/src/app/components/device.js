@@ -16,8 +16,8 @@ const styles = {
         padding: "10px",
         width: "90%"
     },
-    loader:{
-        marginLeft:"40%"
+    loader: {
+        marginLeft: "40%"
     }
 };
 class Device extends Component {
@@ -32,7 +32,7 @@ class Device extends Component {
     }
 
     componentDidMount() {
-        this.firebaseRef = firebase.database().ref('buttons');
+        this.firebaseRef = firebase.database().ref('devices/toggleDevices');
         var setButton = this.setButton;
         this.firebaseRef.on('value', function (snapshot) {
             var items = [];
@@ -54,10 +54,11 @@ class Device extends Component {
     }
 
     onButtonStateToggle(param, event, status) {
-        firebase.database().ref('buttons/' + param.key).update({
+        firebase.database().ref('devices/toggleDevices/' + param.key).update({
             IsOn: status,
             Name: param.Name,
-            Type: param.Type
+            GPIO: param.GPIO,
+            MainBoardID: param.MainBoardID
         });
     }
 
@@ -70,7 +71,7 @@ class Device extends Component {
                     {this.state.buttons.map(function (item, i) {
                         return (
                             <ListItem key={i}
-                                primaryText={ item.Name}
+                                primaryText={item.Name}
                                 rightToggle={
                                     <Toggle onToggle={this.onButtonStateToggle.bind(null, item) } defaultToggled={item.IsOn}/>
                                 }
