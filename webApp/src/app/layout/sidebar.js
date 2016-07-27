@@ -82,6 +82,13 @@ class Sidebar extends React.Component {
                         primaryText="Dashboard"
                         value="dashboard"
                         > </ListItem>
+                    <Divider /> 
+                     <ListItem
+                        containerElement={<Link to="/timeLine"/>}
+                        leftIcon={<FontIcon className="material-icons">settings</FontIcon>}
+                        primaryText="Time Line"
+                        value="timeLine"
+                        > </ListItem>
                     <Divider />
                     <ListItem
                         containerElement={<Link to="/login" />}

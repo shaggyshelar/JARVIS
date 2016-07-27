@@ -18,6 +18,7 @@ import AddAction from '../components/addAction';
 import AddUser from '../components/addUser';
 import AddLocation from '../components/addLocation';
 import Notification from '../components/notification';
+import TimeLine from '../components/timeLine';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -48,6 +49,7 @@ render((
         <Route path="addLocation" component={AddLocation} />
         <Route path="addUser" component={AddUser} />
         <Route path="notification" component={Notification} />
+        <Route path="timeLine" component={TimeLine} />
       </Route>
     </Router>
   </Provider>
