@@ -71,24 +71,22 @@ class SmartHomeApp extends Component {
     });
   }
   getOfflineTheme() {
-    var offlineTheme =getMuiTheme({
-      palette:{
-        primary1Color:'#717171',
-        primary2Color:'#aaaaaa',
-        primary3Color:'#aaaaaa',
+    var offlineTheme = getMuiTheme({
+      palette: {
+        primary1Color: '#717171',
+        primary2Color: '#f5efef',
+        primary3Color: '#f5efef',
         accent1Color: '#717171',
         accent2Color: '#717171',
         accent3Color: '#717171',
-        canvasColor:  '#aaaaaa',
-       },
+        canvasColor: '#f5efef',
+      },
     });
     this.setState({
       currentTheme: offlineTheme
     });
-}
-
-componentDidMount() {
-  if (this.state.isOnline) {
+  }
+  getOnlineTheme() {
     if (localStorage.getItem("selectedTheme")) {
       if (localStorage.getItem("selectedTheme") === "darkTheme") {
         this.setState({
@@ -102,113 +100,119 @@ componentDidMount() {
       }
     }
   }
-  else if (!this.state.isOnline) {
+  componentDidMount() {
+    window.addEventListener('online', this.getOnlineTheme.bind(this));
+    window.addEventListener('offline', this.getOfflineTheme.bind(this));
+    if (this.state.isOnline) {
+      this.getOnlineTheme();
+    }
+    else if (!this.state.isOnline) {
       this.getOfflineTheme();
-  }
-  //var PropelClient = window.goog.propel.PropelClient;
-  let onSubscribtionChange = this.props.onSubscribtionChange;
-  if (propelClient) {
+    }
+    //var PropelClient = window.goog.propel.PropelClient;
+    let onSubscribtionChange = this.props.onSubscribtionChange;
+    if (propelClient) {
 
-    //var propelClient = new PropelClient('./sw.js');
-    propelClient.addEventListener('statuschange', function (event) {
-      if (event.permissionStatus === 'denied') {
-        // Disable UI
-      } else if (event.currentSubscription) {
-        onSubscribtionChange(true);
-        if (!localStorage.getItem('currentSubscription')) {
-          var user = firebase.auth().currentUser;
-          console.log("OS:: " + navigator.platform);
-          console.log("Browser:: " + navigator.browserInfo);
-          let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
-          let userEmail = user.email;
-          console.log("UserEmail:: " + userEmail);
-          let firebaseRef = firebase.database().ref('subscriptions');
-          firebaseRef.push({
-            "regID": registrationID,
-            "email": userEmail,
-            "date": new Date().toUTCString(),
-          });
-          localStorage.setItem("currentSubscription", event.currentSubscription);
+      //var propelClient = new PropelClient('./sw.js');
+      propelClient.addEventListener('statuschange', function (event) {
+        if (event.permissionStatus === 'denied') {
+          // Disable UI
+        } else if (event.currentSubscription) {
+          onSubscribtionChange(true);
+          if (!localStorage.getItem('currentSubscription')) {
+            var user = firebase.auth().currentUser;
+            console.log("OS:: " + navigator.platform);
+            console.log("Browser:: " + navigator.browserInfo);
+            let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
+            let userEmail = user.email;
+            console.log("UserEmail:: " + userEmail);
+            let firebaseRef = firebase.database().ref('subscriptions');
+            firebaseRef.push({
+              "regID": registrationID,
+              "email": userEmail,
+              "date": new Date().toUTCString(),
+            });
+            localStorage.setItem("currentSubscription", event.currentSubscription);
+          }
+        } else {
+          // Enable UI
+          // Show that user is not subscribed
+        }
+      });
+    }
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        browserHistory.replace('/dashboard');
+        if (localStorage.getItem('currentSubscription')) {
+          onSubscribtionChange(true);
+          onUserStatusChange(user);
         }
       } else {
-        // Enable UI
-        // Show that user is not subscribed
+        onUserStatusChange(null);
+        browserHistory.replace('/login');
       }
     });
   }
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      browserHistory.replace('/dashboard');
-      if (localStorage.getItem('currentSubscription')) {
-        onSubscribtionChange(true);
-        onUserStatusChange(user);
-      }
-    } else {
-      onUserStatusChange(null);
-      browserHistory.replace('/login');
+
+
+  handleTouchTap() {
+    this.setState({
+      open: true,
+    });
+  }
+
+  openDrawer() {
+    this.setState({
+      open: true,
+    });
+  }
+
+  closeDrawer() {
+    this.setState({
+      open: false,
+    });
+  }
+  changeTheme(theme) {
+    if (theme === "darkTheme")
+      this.setState({
+        currentTheme: getMuiTheme(darkBaseTheme)
+      });
+    else {
+      this.setState({
+        currentTheme: getMuiTheme()
+      });
     }
-  });
-}
-
-
-handleTouchTap() {
-  this.setState({
-    open: true,
-  });
-}
-
-openDrawer() {
-  this.setState({
-    open: true,
-  });
-}
-
-closeDrawer() {
-  this.setState({
-    open: false,
-  });
-}
-changeTheme(theme) {
-  if (theme === "darkTheme")
-    this.setState({
-      currentTheme: getMuiTheme(darkBaseTheme)
-    });
-  else {
-    this.setState({
-      currentTheme: getMuiTheme()
-    });
+    localStorage.setItem("selectedTheme", theme);
   }
-  localStorage.setItem("selectedTheme", theme);
-}
 
-render() {
-  let {
-    open,
-  } = this.state;
-  let docked = false;
-  let showMenuIconButton = true;
-  let childStyle;
-  if (this.props.width === LARGE || this.props.width === MEDIUM) {
-    docked = true;
-    open = true;
-    showMenuIconButton = false;
-    childStyle = Object.assign(styles.content, styles.contentWhenMedium);
-  }
-  else {
-    childStyle = { marginLeft: '1px' };
-  }
-  return (
-    <MuiThemeProvider muiTheme={this.state.currentTheme}>
-      <div>
-        <Header style={childStyle} openDrawer={this.openDrawer} changeTheme={this.changeTheme} showMenuIconButton={showMenuIconButton}/>
-        <div style={childStyle}>
-          {this.props.children}
+  render() {
+    let {
+      open,
+    } = this.state;
+    let docked = false;
+    let showMenuIconButton = true;
+    let childStyle;
+    if (this.props.width === LARGE || this.props.width === MEDIUM) {
+      docked = true;
+      open = true;
+      showMenuIconButton = false;
+      childStyle = Object.assign(styles.content, styles.contentWhenMedium);
+    }
+    else {
+      childStyle = { marginLeft: '1px' };
+    }
+    return (
+      <MuiThemeProvider muiTheme={this.state.currentTheme}>
+        <div>
+          <Header style={childStyle} openDrawer={this.openDrawer} changeTheme={this.changeTheme} showMenuIconButton={showMenuIconButton}/>
+          <div style={childStyle}>
+            {this.props.children}
+          </div>
+          <Sidebar isOpen={open} docked={docked} closeDrawer={this.closeDrawer}/>
         </div>
-        <Sidebar isOpen={open} docked={docked} closeDrawer={this.closeDrawer}/>
-      </div>
-    </MuiThemeProvider>
-  );
-}
+      </MuiThemeProvider>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
