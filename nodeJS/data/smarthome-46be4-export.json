@@ -1,0 +1,213 @@
+{
+  "buttons" : {
+    "button1" : {
+      "IsOn" : true,
+      "Name" : "TV Button",
+      "Type" : "Light"
+    },
+    "button2" : {
+      "IsOn" : false,
+      "Name" : "Ceiling Light",
+      "Type" : "Light"
+    }
+  },
+  "camera" : {
+    "-KNfZn0AAe5Mj-CY9Ypi" : {
+      "Directories" : {
+        "Images" : "./my_ip_camera/image",
+        "Videos" : "./my_ip_camera/video"
+      },
+      "Host" : "192.168.1.100",
+      "Name" : "Living Room Camera",
+      "Password" : "test",
+      "Port" : 80,
+      "Type" : "foscam_hd",
+      "UserName" : "test"
+    },
+    "-KNfZwiWjp6ln7csTv-9" : {
+      "Directories" : {
+        "Images" : "./my_ip_camera/image",
+        "Videos" : "./my_ip_camera/video"
+      },
+      "Host" : "192.168.1.101",
+      "Name" : "Kitchen Room Camera",
+      "Password" : "test",
+      "Port" : 80,
+      "Type" : "foscam_hd",
+      "UserName" : "test"
+    }
+  },
+  "devices" : {
+    "dimmers" : {
+      "-KNfCeLDKyl80VgtVN3C" : {
+        "CurrentValue" : 3,
+        "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
+        "MaxValue" : 5,
+        "MinValue" : 1,
+        "Name" : "Dimmer 1"
+      },
+      "-KNfCmA9_mXSTcvhViFB" : {
+        "CurrentValue" : 3,
+        "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
+        "MaxValue" : 5,
+        "MinValue" : 1,
+        "Name" : "Dimmer 2"
+      },
+      "-KNfCvR-TBSTnRq9cPGV" : {
+        "CurrentValue" : 3,
+        "MainBoardID" : "KNbKiEUSmlgFtftRYpD",
+        "MaxValue" : 5,
+        "MinValue" : 1,
+        "Name" : "Dimmer 1"
+      },
+      "-KNfCzOYYVFYkMaFm7mx" : {
+        "CurrentValue" : 3,
+        "MainBoardID" : "KNbKiEUSmlgFtftRYpD",
+        "MaxValue" : 5,
+        "MinValue" : 1,
+        "Name" : "Dimmer 2"
+      }
+    },
+    "mainBoards" : {
+      "-KNbKR6TYvKQlEJ2Nzj7" : {
+        "Name" : "Raspberry Pi 1",
+        "Room" : "KNbHF_A_G9CB-F1MeMw"
+      },
+      "-KNbKdCnEb7D44B_Dd9A" : {
+        "Name" : "Arduino Board 1",
+        "Room" : "KNbHF_A_G9CB-F1MeMw"
+      },
+      "-KNbKiEUSmlgFtftRYpD" : {
+        "Name" : "RF Duino Board 1",
+        "Room" : "KNbHF_A_G9CB-F1MeMw"
+      },
+      "-KNbLOJ26MQwc19VVdIJ" : {
+        "Name" : "Raspberry Pi 3",
+        "Room" : "KNbHT6EVm-1S7CfxEpg"
+      },
+      "-KNbMIqT-5sYNe-o0pbs" : {
+        "Name" : "Raspberry Pi 2",
+        "Room" : "KNbHMw-l3wzqxLP8Tgy"
+      }
+    },
+    "toggleDevices" : {
+      "-KNbNyxPqQian7MF1xzz" : {
+        "GPIO" : 1,
+        "IsOn" : false,
+        "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
+        "Name" : "Light 1"
+      },
+      "-KNbO3zK-0Q3a7IxggfW" : {
+        "GPIO" : 2,
+        "IsOn" : false,
+        "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
+        "Name" : "Light 2"
+      },
+      "-KNbOJyLTr18dcUvcGQA" : {
+        "GPIO" : 1,
+        "IsOn" : false,
+        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
+        "Name" : "Light 1"
+      },
+      "-KNbONsktKMDJA9dNO27" : {
+        "GPIO" : 2,
+        "IsOn" : false,
+        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
+        "Name" : "Light 2"
+      },
+      "-KNbOY0b5uB6-zdBJ0xe" : {
+        "GPIO" : 3,
+        "IsOn" : false,
+        "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
+        "Name" : "Light 3"
+      },
+      "-KNbOaj1Y3BXjAuIU8lY" : {
+        "GPIO" : 4,
+        "IsOn" : false,
+        "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
+        "Name" : "Light 4"
+      }
+    }
+  },
+  "dimmers" : {
+    "dimmer1" : {
+      "CurrentValue" : 3,
+      "Name" : "Bedroom Fan 1"
+    }
+  },
+  "rooms" : {
+    "-KNbHF_A_G9CB-F1MeMw" : {
+      "Name" : "Living Room"
+    },
+    "-KNbHMw-l3wzqxLP8Tgy" : {
+      "Name" : "Bed Room"
+    },
+    "-KNbHT6EVm-1S7CfxEpg" : {
+      "Name" : "Master Bed Room"
+    },
+    "-KNbHp4bgIIJKj9stn8r" : {
+      "Name" : "Living Room Gallery"
+    },
+    "-KNbHt_A637WFhgx2hyT" : {
+      "Name" : "Bed Room Gallery"
+    }
+  },
+  "scenes" : {
+    "-KNboMVSTcr29w7_v25Y" : {
+      "Name" : "Scene 1"
+    },
+    "-KNboQYYw11s8Rvciwoj" : {
+      "Name" : "Scene 2"
+    },
+    "-KNboT49QEdQEHpK4kGj" : {
+      "Name" : "Scene 3"
+    },
+    "-KNboV_TmWDeqJf-8oRq" : {
+      "Name" : "Scene 4"
+    }
+  },
+  "sensors" : {
+    "temp" : {
+      "-KNfYmw8PajaRs47WISu" : {
+        "MainBoardID" : "KNbKiEUSmlgFtftRYpD",
+        "Name" : "Temp 1"
+      },
+      "-KNfYq7LeQ-JzHWSZ67-" : {
+        "MainBoardID" : "KNbKiEUSmlgFtftRYpD",
+        "Name" : "Temp 2"
+      }
+    }
+  },
+  "subscriptions" : {
+    "-KNWy1D2ixt38O02wEbo" : {
+      "date" : "Mon, 25 Jul 2016 12:12:05 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "cJJrp5ioXqo:APA91bHZbVpjaSxn3lzLpMYtu8v8jGtDVxPE3pfK3yQtukJHjv2tfX0ayE3QxC1auokvTyCF69i_ALh-kC64UdJATs2QJAtE7QtHOfSnV8Is6eDS2uPSANxN5DR_chEqTZPt1GIAZ-uY"
+    },
+    "-KNX9wfG4OozgyyxGpId" : {
+      "date" : "Mon, 25 Jul 2016 13:08:30 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "eZVC_yIq7IY:APA91bGwqCnayjK1btE9ZOnBVRIbkY-pIu6hxWgmjRFBwbGwLbyZ3ds72zXBoTx9_B05dQwPO9S87Gehsp6ENCsTiAl5MmV_qzuYHMxlKAFrbAM0EEfMnjKc8YthnNM5KkT1avQ7XaS7"
+    },
+    "-KNf6yCkhGsfRO8TrYZ4" : {
+      "date" : "Wed, 27 Jul 2016 06:52:05 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "cokBf8CTMv0:APA91bEVLUJA7ts5mVZIyGJr2fIcGrjY1WHdyCHhvIrRUZ1Sf9lHJcDgQ7lLjkCND_IKJgwH2XbrcZrK__-H2l2H-at1mAo3v9n0nt9NJ4omMo1O_lwlIFkSGnafTfbUed1cG-yc4HWo"
+    },
+    "-KNfBmnmkbMsLW96wiwp" : {
+      "date" : "Wed, 27 Jul 2016 07:13:09 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "fYbCjVMAXNo:APA91bGOM4Ca7hoplTBBkAMph9-zi_EpHQatOsab1LXKEaI49NhM3ShqFrtYUBATf8XngvWJBp_7qTmXBncL77bcmb-tbKB-SxxcZlRv-dNk1VzN0F8M4kYkVWiAa0NmHvWGLEfujJ6e"
+    },
+    "-KNfBugaEzBZifhT1xKb" : {
+      "date" : "Wed, 27 Jul 2016 07:13:41 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "dvr_hk7ECe8:APA91bHnbWOoFPxtjGOojoZzA6R1dKNmtnrweVKgXUFvZd6rbH1GmvElGa5M62UJ8f4cIrj7SlIWW5-d2UdsM6EF3zn8LVvOGBXoVxRCkyI-NjbSQvBwkEyAIVtPdq8WIJ1bs6i331Yn"
+    },
+    "-KNfCGjDUONcgJjb0yaU" : {
+      "date" : "Wed, 27 Jul 2016 07:15:16 GMT",
+      "email" : "sagar.shelar@outlook.com",
+      "regID" : "dKlVZoOvHNw:APA91bHY0LbGIo9ORqcb6QgO1vdsWKepmA_-9GohtNOhZgCE74q9BrDjWXChMfs7XQixhRhB5DhVALBAPyKZsAOOTrjr_SKf-E31sRy-_9GzjAO2n3_JAY6WXZbHtFK0m8OvlkLuprA0"
+    }
+  }
+}
