@@ -65,27 +65,30 @@ class Notification extends React.Component {
     }
 
     renderNotifications() {
-        if (this.state.notifications !== undefined) {
-            // this.state.notifications.map(function (item, i) {
-            // }, this)
+        if (this.state.notifications !== undefined && this.state.notifications.length > 0) {
             const {stepIndex} = this.state;
-
             return (
                 <Stepper
                     activeStep={stepIndex}
                     linear={false}
                     orientation="vertical"
                     >
-                    <Step key={1}>
-                        <StepButton onTouchTap={() => this.setState({ stepIndex: 0 }) }>
-                            <Avatar src="../../assets/images/userImage.png" /> &nbsp; &nbsp; Motion Detected
-                        </StepButton>
-                        <StepContent>
-                            <p>
-                                In Bedroom at 4.45 pm.
-                            </p>
-                        </StepContent>
-                    </Step>
+                    { this.state.notifications.map(function (item, i) {
+                            return (
+                                <Step key={i}>
+                                    <StepButton onTouchTap={() => this.setState({ stepIndex: i }) }>
+                                        <Avatar src="../../assets/images/userImage.png" /> &nbsp; &nbsp; {item.Title}
+                                    </StepButton>
+                                    <StepContent>
+                                        <p>
+                                            Message Or Image Here
+                                            {item.Footer}
+                                        </p>
+                                    </StepContent>
+                                </Step>
+                            );
+                        }, this)
+                    }
                 </Stepper>
             );
         }
