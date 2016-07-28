@@ -1,16 +1,4 @@
 {
-  "buttons" : {
-    "button1" : {
-      "IsOn" : true,
-      "Name" : "TV Button",
-      "Type" : "Light"
-    },
-    "button2" : {
-      "IsOn" : false,
-      "Name" : "Ceiling Light",
-      "Type" : "Light"
-    }
-  },
   "camera" : {
     "-KNfZn0AAe5Mj-CY9Ypi" : {
       "Directories" : {
@@ -117,7 +105,7 @@
       },
       "-KNbOY0b5uB6-zdBJ0xe" : {
         "GPIO" : 3,
-        "IsOn" : false,
+        "IsOn" : true,
         "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
         "Name" : "Light 3"
       },
@@ -129,10 +117,30 @@
       }
     }
   },
-  "dimmers" : {
-    "dimmer1" : {
-      "CurrentValue" : 3,
-      "Name" : "Bedroom Fan 1"
+  "notifications" : {
+    "-KNm3o_qZkOX1tMqAuQi" : {
+      "Footer" : "",
+      "ImagePath" : "",
+      "Title" : "Motion Detected",
+      "Type" : "Motion"
+    },
+    "-KNm3sQ34JknZW-rCxLZ" : {
+      "Footer" : "",
+      "ImagePath" : "",
+      "Title" : "Motion Detected",
+      "Type" : "Motion"
+    },
+    "-KNm3uGaRb1pRYqzFzHP" : {
+      "Footer" : "",
+      "ImagePath" : "",
+      "Title" : "Motion Detected",
+      "Type" : "Motion"
+    },
+    "-KNm3w9zn0fh8xHNmOTP" : {
+      "Footer" : "",
+      "ImagePath" : "",
+      "Title" : "Motion Detected",
+      "Type" : "Motion"
     }
   },
   "rooms" : {
@@ -179,35 +187,30 @@
     }
   },
   "subscriptions" : {
-    "-KNWy1D2ixt38O02wEbo" : {
-      "date" : "Mon, 25 Jul 2016 12:12:05 GMT",
+    "-KNfp-64QKXwZ9v2QZLF" : {
+      "date" : "Wed, 27 Jul 2016 10:08:49 GMT",
       "email" : "sagar.shelar@outlook.com",
-      "regID" : "cJJrp5ioXqo:APA91bHZbVpjaSxn3lzLpMYtu8v8jGtDVxPE3pfK3yQtukJHjv2tfX0ayE3QxC1auokvTyCF69i_ALh-kC64UdJATs2QJAtE7QtHOfSnV8Is6eDS2uPSANxN5DR_chEqTZPt1GIAZ-uY"
+      "regID" : "dVeQZHlns0s:APA91bGemJ5TO2eGqDdp9Rm_8axvGC_4THqhTjPVyNia8vBAELu1T5mNRWxgqOrL_3dj3nQIAB1jTnnuuaqLIGFuNyapAnKClI_AJAvl_PFaD6Bf8Uy2qUctdHQb_91cAzrBJCyKO1-_"
     },
-    "-KNX9wfG4OozgyyxGpId" : {
-      "date" : "Mon, 25 Jul 2016 13:08:30 GMT",
+    "-KNg2ZDn5hApcVzoB4Bp" : {
+      "date" : "Wed, 27 Jul 2016 11:12:27 GMT",
       "email" : "sagar.shelar@outlook.com",
-      "regID" : "eZVC_yIq7IY:APA91bGwqCnayjK1btE9ZOnBVRIbkY-pIu6hxWgmjRFBwbGwLbyZ3ds72zXBoTx9_B05dQwPO9S87Gehsp6ENCsTiAl5MmV_qzuYHMxlKAFrbAM0EEfMnjKc8YthnNM5KkT1avQ7XaS7"
+      "regID" : "dj7PcEwwEL0:APA91bEn35yTsAipsVO4usZpvxYolvp-2u1_HtKxo1NFcUWxEQA61FbApA8fIyHqUBBKvBay9B-O70iQjWBkSM6UlMAj-gfhgUKhZ0Pcc79lSx0l_96o-aWAcqaE4dt_gyyatbraeYMB"
     },
-    "-KNf6yCkhGsfRO8TrYZ4" : {
-      "date" : "Wed, 27 Jul 2016 06:52:05 GMT",
+    "-KNgmfIZMGZts-ADLeoz" : {
+      "date" : "Wed, 27 Jul 2016 14:38:17 GMT",
       "email" : "sagar.shelar@outlook.com",
-      "regID" : "cokBf8CTMv0:APA91bEVLUJA7ts5mVZIyGJr2fIcGrjY1WHdyCHhvIrRUZ1Sf9lHJcDgQ7lLjkCND_IKJgwH2XbrcZrK__-H2l2H-at1mAo3v9n0nt9NJ4omMo1O_lwlIFkSGnafTfbUed1cG-yc4HWo"
+      "regID" : "eZAGgZfG5OA:APA91bESHAAtCwK5EoXA0pkf_gl49k0rC95mZO058pFw-1axVbltm2no6OIFUNDNERsEbTJtSIE3HwCtsAP9hqCqrMFlGY-GHHpT1RXmQhLzavfN4xPAAj_hi_p8MwQhbVO7a-dyd9Fo"
     },
-    "-KNfBmnmkbMsLW96wiwp" : {
-      "date" : "Wed, 27 Jul 2016 07:13:09 GMT",
+    "-KNgmtFTuRK0wtf2XiBk" : {
+      "date" : "Wed, 27 Jul 2016 14:39:14 GMT",
       "email" : "sagar.shelar@outlook.com",
-      "regID" : "fYbCjVMAXNo:APA91bGOM4Ca7hoplTBBkAMph9-zi_EpHQatOsab1LXKEaI49NhM3ShqFrtYUBATf8XngvWJBp_7qTmXBncL77bcmb-tbKB-SxxcZlRv-dNk1VzN0F8M4kYkVWiAa0NmHvWGLEfujJ6e"
+      "regID" : "fLJ5p0_mkmo:APA91bGpDFVlX1l__Ge0mOBwOHWLpmjrLKngtFaqzeLptsNYWYSwRIb6pgGLkydvE0nPAYZKFERMF82TlHfwO2tGsNCSIGjUXrX1CPln97mzfrTWAZCJVzNnPT9dSP2ofxPGyyEoaMcr"
     },
-    "-KNfBugaEzBZifhT1xKb" : {
-      "date" : "Wed, 27 Jul 2016 07:13:41 GMT",
+    "-KNgnE7zB8QPgP-olG4a" : {
+      "date" : "Wed, 27 Jul 2016 14:40:44 GMT",
       "email" : "sagar.shelar@outlook.com",
-      "regID" : "dvr_hk7ECe8:APA91bHnbWOoFPxtjGOojoZzA6R1dKNmtnrweVKgXUFvZd6rbH1GmvElGa5M62UJ8f4cIrj7SlIWW5-d2UdsM6EF3zn8LVvOGBXoVxRCkyI-NjbSQvBwkEyAIVtPdq8WIJ1bs6i331Yn"
-    },
-    "-KNfCGjDUONcgJjb0yaU" : {
-      "date" : "Wed, 27 Jul 2016 07:15:16 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "dKlVZoOvHNw:APA91bHY0LbGIo9ORqcb6QgO1vdsWKepmA_-9GohtNOhZgCE74q9BrDjWXChMfs7XQixhRhB5DhVALBAPyKZsAOOTrjr_SKf-E31sRy-_9GzjAO2n3_JAY6WXZbHtFK0m8OvlkLuprA0"
+      "regID" : "cz1FOE1I0Gk:APA91bFyrjNciS5WEZeQRgc2Mruj23GNIhaqSoybsyn5QKQtZRwPzu-l_kUGLQRwktkjxWdv4x4ztcAExmW9Oo8ddJY4LC_WJSG0HIN_D3h9qwzg77bA4jPlr8OzdljF_OHmehtYoSjr"
     }
   }
 }
