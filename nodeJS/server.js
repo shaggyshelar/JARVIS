@@ -1,5 +1,6 @@
 var firebase = require("firebase");
 var NodeWebcam = require("node-webcam");
+var gcm = require('node-gcm');
 
 var accountFilePath = __dirname + '/SmartHome-a724a1bd5ec9.json';
 var buttons = []
@@ -56,6 +57,17 @@ firebaseRef.on('child_changed', function (data) {
             //     var downloadURL = uploadTask.snapshot.downloadURL;
             //     console.log('Download URL');
             // });
+            var message = new gcm.Message({
+                data: { key1: 'msg1' }
+            });
+
+            var sender = new gcm.Sender('AIzaSyB-9EC1ZLHOSIsyUF92bmMqRY6MWg7Nni0');
+            var regTokens = ['dVeQZHlns0s:APA91bGemJ5TO2eGqDdp9Rm_8axvGC_4THqhTjPVyNia8vBAELu1T5mNRWxgqOrL_3dj3nQIAB1jTnnuuaqLIGFuNyapAnKClI_AJAvl_PFaD6Bf8Uy2qUctdHQb_91cAzrBJCyKO1-_'];
+
+            sender.send(message, { registrationTokens: regTokens }, function (err, response) {
+                if (err) console.error(err);
+                else console.log(response);
+            });
         });
     }
 });
