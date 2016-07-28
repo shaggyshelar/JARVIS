@@ -58,7 +58,22 @@ firebaseRef.on('child_changed', function (data) {
             //     console.log('Download URL');
             // });
             var message = new gcm.Message({
-                data: { key1: 'msg1' }
+                collapseKey: 'demo',
+                priority: 'high',
+                contentAvailable: true,
+                delayWhileIdle: true,
+                timeToLive: 3,
+                //restrictedPackageName: "somePackageName",
+                //dryRun: true,
+                data: {
+                    key1: 'message1',
+                    key2: 'message2'
+                },
+                notification: {
+                    title: "Hello, World",
+                    icon: "ic_launcher",
+                    body: "This is a notification that will be displayed ASAP."
+                }
             });
 
             var sender = new gcm.Sender('AIzaSyB-9EC1ZLHOSIsyUF92bmMqRY6MWg7Nni0');
