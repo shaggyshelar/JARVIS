@@ -33,6 +33,18 @@ const styles = {
   },
 };
 
+String.prototype.hashCode = function () {
+  var hash = 0;
+  if (this.length == 0) return hash;
+  for (var i = 0; i < this.length; i++) {
+    var char = this.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+  return hash;
+}
+
+
 navigator.browserInfo = (function () {
   var ua = navigator.userAgent, tem,
     M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
@@ -100,6 +112,7 @@ class SmartHomeApp extends Component {
       }
     }
   }
+
   componentDidMount() {
     window.addEventListener('online', this.getOnlineTheme.bind(this));
     window.addEventListener('offline', this.getOfflineTheme.bind(this));
@@ -111,29 +124,26 @@ class SmartHomeApp extends Component {
     }
     //var PropelClient = window.goog.propel.PropelClient;
     let onSubscribtionChange = this.props.onSubscribtionChange;
-    if (propelClient) {
 
+    if (propelClient) {
       //var propelClient = new PropelClient('./sw.js');
       propelClient.addEventListener('statuschange', function (event) {
         if (event.permissionStatus === 'denied') {
           // Disable UI
         } else if (event.currentSubscription) {
           onSubscribtionChange(true);
-          if (!localStorage.getItem('currentSubscription')) {
-            var user = firebase.auth().currentUser;
-            console.log("OS:: " + navigator.platform);
-            console.log("Browser:: " + navigator.browserInfo);
-            let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
-            let userEmail = user.email;
-            console.log("UserEmail:: " + userEmail);
-            let firebaseRef = firebase.database().ref('subscriptions');
-            firebaseRef.push({
-              "regID": registrationID,
-              "email": userEmail,
-              "date": new Date().toUTCString(),
-            });
-            localStorage.setItem("currentSubscription", event.currentSubscription);
-          }
+          var user = firebase.auth().currentUser;
+          let registrationID = event.currentSubscription.endpoint.split('https://android.googleapis.com/gcm/send/')[1];
+          let deviceID = registrationID.hashCode();
+          let userEmail = user.email;
+          let userRef = firebase.database().ref('subscriptions/' + user.email.hashCode() + '/' + deviceID);
+          userRef.set({
+            OS: navigator.platform,
+            Browser: navigator.browserInfo,
+            RegID: registrationID,
+            Email: userEmail,
+            HostName: window.location.hostname
+          })
         } else {
           // Enable UI
           // Show that user is not subscribed
