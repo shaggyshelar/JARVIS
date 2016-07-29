@@ -112,6 +112,20 @@ class Sidebar extends React.Component {
                         value="devices"> </ListItem>
                     <Divider />
                     <ListItem
+                        containerElement={<Link to="/rooms" />}
+                        leftIcon={<FontIcon className="material-icons">devices</FontIcon>}
+                        rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}
+                        primaryText="Rooms"
+                        value="rooms"> </ListItem>
+                    <Divider />
+                    <ListItem
+                        containerElement={<Link to="/scenes" />}
+                        leftIcon={<FontIcon className="material-icons">devices</FontIcon>}
+                        rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}
+                        primaryText="Scenes"
+                        value="scenes"> </ListItem>
+                    <Divider />
+                    <ListItem
                         containerElement={<Link to="/locations" />}
                         leftIcon={<FontIcon className="material-icons">add_alert</FontIcon>}
                         rightIcon={<FontIcon className="material-icons">add_alert</FontIcon>}

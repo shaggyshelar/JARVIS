@@ -11,6 +11,8 @@ import Login from '../components/login';
 import Dashboard from '../components/dashboard';
 import Action from '../components/action';
 import Device from '../components/device';
+import Room from '../components/room';
+import Scene from '../components/scene';
 import Location from '../components/location';
 import User from '../components/user';
 import AddDevice from '../components/addDevice';
@@ -42,6 +44,8 @@ render((
         <Route path="login"  component={Login} />
         <Route path="actions" component={Action} />
         <Route path="devices" component={Device} />
+        <Route path="rooms" component={Room} />
+        <Route path="scenes" component={Scene} />
         <Route path="locations" component={Location} />
         <Route path="users" component={User} />
         <Route path="addDevice" component={AddDevice} />
