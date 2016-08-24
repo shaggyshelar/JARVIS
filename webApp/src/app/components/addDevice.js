@@ -6,6 +6,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Toggle from 'material-ui/Toggle';
 import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 
 const styles = {
     addDevicePage: {
@@ -13,7 +14,6 @@ const styles = {
         paddingRight: 14
     },
     subHeader: {
-        backgroundColor: "whitesmoke",
         fontSize: "16px",
         fontWeight: "bold"
     },
@@ -25,12 +25,12 @@ const styles = {
     },
     toggle: {
         marginBottom: 16,
-    },
+    }
 }
 class AddDevice extends React.Component {
     render() {
         return (
-            <div>
+           <Paper  zDepth={1}>
                 <Subheader style={styles.subHeader}>Device Info</Subheader>
                 <Divider />
                 <div style={styles.addDevicePage}>
@@ -115,8 +115,7 @@ class AddDevice extends React.Component {
                         <RaisedButton label="Add Device"  backgroundColor="#66CC33" />
                     </div>
                 </div>
-            </div>
-
+            </Paper>
         );
     }
 }

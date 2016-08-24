@@ -20,19 +20,18 @@ const styles = {
         marginLeft: "40%"
     }
 };
-class Device extends Component {
+class Room extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            buttons: [],
+            rooms: [],
         };
         this.setButton = this.setButton.bind(this);
-        this.onButtonStateToggle = this.onButtonStateToggle.bind(this);
     }
 
     componentDidMount() {
-        this.firebaseRef = firebase.database().ref('devices/toggleDevices');
+        this.firebaseRef = firebase.database().ref('rooms');
         var setButton = this.setButton;
         this.firebaseRef.on('value', function (snapshot) {
             var items = [];
@@ -49,17 +48,8 @@ class Device extends Component {
         this.firebaseRef.off();
     }
 
-    setButton(buttons) {
-        this.setState({ buttons: buttons });
-    }
-
-    onButtonStateToggle(param, event, status) {
-        firebase.database().ref('devices/toggleDevices/' + param.key).update({
-            IsOn: status,
-            Name: param.Name,
-            GPIO: param.GPIO,
-            MainBoardID: param.MainBoardID
-        });
+    setButton(rooms) {
+        this.setState({ rooms: rooms });
     }
 
     render() {
@@ -67,14 +57,11 @@ class Device extends Component {
         return (
             <Paper zDepth={1}>
                 <List >
-                    {this.state.buttons.length === 0 ? <CircularProgress style={styles.loader}/> : <div></div>}
-                    {this.state.buttons.map(function (item, i) {
+                    {this.state.rooms.length === 0 ? <CircularProgress style={styles.loader}/> : <div></div>}
+                    {this.state.rooms.map(function (item, i) {
                         return (
                             <ListItem key={i}
                                 primaryText={item.Name}
-                                rightToggle={
-                                    <Toggle onToggle={this.onButtonStateToggle.bind(null, item) } defaultToggled={item.IsOn}/>
-                                }
                                 leftIcon={<FontIcon className="material-icons">brightness_low</FontIcon>}
                                 />
                         );
@@ -85,4 +72,4 @@ class Device extends Component {
     }
 }
 
-module.exports = Device;
+module.exports = Room;

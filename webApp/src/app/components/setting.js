@@ -7,17 +7,17 @@ import Toggle from 'material-ui/Toggle';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Checkbox from 'material-ui/Checkbox';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Actions from '../actions';
 import {onSubscribtionChange} from '../actions/firebaseActions';
+import Paper from 'material-ui/Paper';
 
 const styles = {
     card: {
         marginTop: 10,
         backgroundColor: "#D9E4E4",
-    }
+    },
 };
 
 class Settings extends React.Component {
@@ -43,7 +43,7 @@ class Settings extends React.Component {
     }
     render() {
         return (
-            <div >
+              <Paper >
                 <List>
                     <Subheader>General Setings</Subheader>
                     <Divider />
@@ -84,8 +84,7 @@ class Settings extends React.Component {
                     <ListItem primaryText="Connection Lost" leftCheckbox={<Checkbox />} />
                     <Divider />
                 </List>
-
-            </div>
+            </Paper>
         );
     }
 }

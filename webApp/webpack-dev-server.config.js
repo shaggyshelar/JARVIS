@@ -3,6 +3,40 @@ const path = require('path');
 const buildPath = path.resolve(__dirname, 'build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const fs = require("fs");
+const swPrecache = require('sw-precache');
+
+function WebpackSwPrecachePlugin(options) {
+}
+
+WebpackSwPrecachePlugin.prototype.apply = function (compiler) {
+  var rootDir = 'src/www';
+
+  var options = {
+    staticFileGlobs: [
+      'app.js',
+      'styles.css',
+      'assets/images/*.png',
+      'favicon.ico'
+    ],
+    stripPrefix: 'src',
+  }
+  compiler.plugin("after-emit", (compilation, callback) => {
+    swPrecache.write(path.join(rootDir, "sw-precache-config.js"), options, function (err) {
+      if (err) {
+        console.log("\n*** sw-precache file creation error: " + err);
+      } else {
+        fs.readFile("src/www/sw.js", "utf-8", function (err, data) {
+          fs.appendFile('src/www/sw-precache-config.js', data, function (err) {
+            console.log("\nCreated sw-precache file static/sw-precache-config.js");
+          });
+        });
+      }
+      callback(err);
+    })
+  });
+};
 
 const config = {
   // Entry points to the project
@@ -32,8 +66,9 @@ const config = {
     new webpack.NoErrorsPlugin(),
     // Moves files
     new TransferWebpackPlugin([
-      {from: 'www'},
+      { from: 'www' },
     ], path.resolve(__dirname, 'src')),
+    new WebpackSwPrecachePlugin(),
   ],
   module: {
     loaders: [
@@ -47,27 +82,27 @@ const config = {
         test: /\.css$/,
         loaders: ['style', 'css']
       },
-      { 
+      {
         test: /\.ttf$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
-      { 
+      {
         test: /\.svg$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
-      { 
+      {
         test: /\.png$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
-      { 
+      {
         test: /\.woff2$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
-      { 
+      {
         test: /\.woff$/,
-        loader: 'url-loader?limit=20000000'
+        loader: 'url-loader?limit=10000'
       },
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"}
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" }
     ],
   },
 };

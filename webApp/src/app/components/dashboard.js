@@ -1,12 +1,11 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import SwipeableViews from 'react-swipeable-views';
 import FontIcon from 'material-ui/FontIcon';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader} from 'material-ui/Card';
 import Action from './action';
 import Location from './location';
-import Home from './home';
 import Settings from './setting';
+import Divider from 'material-ui/Divider';
 
 const styles = {
     headline: {
@@ -20,7 +19,6 @@ const styles = {
     },
     card: {
         marginTop: 10,
-        backgroundColor: "#D9E4E4",
     }
 };
 
@@ -47,35 +45,43 @@ class Dashboard extends React.Component {
                     <Tab icon={<FontIcon className="material-icons">home</FontIcon>}
                         label="Home">
                         <div>
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Actions"/>
                             </Card>
+                            <Divider />
                             <Action />
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Places"/>
                             </Card>
+                            <Divider />
                             <Location />
+                            <Divider />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Devices"/>
                             </Card>
+                            <Divider />
                         </div>
                     </Tab>
                     <Tab  icon={<FontIcon className="material-icons">star_border</FontIcon>}
                         label="Favorites">
-                       <div>
+                        <div>
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Actions"/>
                             </Card>
+                            <Divider />
                             <Action />
                             <Card style={styles.card}>
                                 <CardHeader title="Featured Places"/>
                             </Card>
+                            <Divider />
                             <Location />
                         </div>
                     </Tab>
                     <Tab icon={<FontIcon className="material-icons">settings</FontIcon>}
                         label="Settings">
-                         <Settings/>
+                        <Settings/>
                     </Tab>
                 </Tabs>
             </div>

@@ -23,19 +23,19 @@
 
 console.log('Started Service Worker', self);
 
-self.addEventListener('install', function (event) {
-    self.skipWaiting();
-    console.log('Installed', event);
-});
+// self.addEventListener('install', function (event) {
+//     self.skipWaiting();
+//     console.log('Installed', event);
+// });
 
-self.addEventListener('activate', function (event) {
-    console.log('Activated', event);
-});
+// self.addEventListener('activate', function (event) {
+//     console.log('Activated', event);
+// });
 
 self.addEventListener('push', function (event) {
     console.log('Push message', event);
-    var title = 'Yay a message.';
-    var body = 'We have received a push message.';
+    var title = 'Notification.';
+    var body = 'Click to see new notification.';
     var icon = 'assets/images/jarvis192.png';
     var tag = 'simple-push-demo-notification-tag';
 
@@ -53,7 +53,7 @@ self.addEventListener('notificationclick', function (event) {
     // Android doesn't close the notification when you click it
     // See http://crbug.com/463146
     event.notification.close();
-    var url = 'https://youtu.be/gYMkEMCHtJ4';
+    var url = 'https://smarthome-46be4.firebaseapp.com/notification';
     // Check if there's already a tab open with this URL.
     // If yes: focus on the tab.
     // If no: open a tab with the URL.
