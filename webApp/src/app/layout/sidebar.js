@@ -70,8 +70,8 @@ class Sidebar extends React.Component {
                 >
                 <Card style={styles.card}>
                     <CardHeader textStyle={styles.cardHeader}
-                        title="Salauddin"
-                        subtitle="sal@gmail.com"
+                        title="Sagar"
+                        subtitle="Owner"
                         avatar="../../assets/images/nature1.png" />
                 </Card>
                 <SelectableList value={this.state.selectedMenu}
