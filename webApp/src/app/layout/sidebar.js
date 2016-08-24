@@ -70,7 +70,7 @@ class Sidebar extends React.Component {
                 >
                 <Card style={styles.card}>
                     <CardHeader textStyle={styles.cardHeader}
-                        title="Sagar"
+                        title="Sagar Shelar"
                         subtitle="Owner"
                         avatar="../../assets/images/nature1.png" />
                 </Card>
