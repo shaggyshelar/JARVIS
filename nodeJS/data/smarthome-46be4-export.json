@@ -80,66 +80,179 @@
     },
     "toggleDevices" : {
       "-KNbNyxPqQian7MF1xzz" : {
-        "GPIO" : 1,
-        "IsOn" : false,
+        "GPIO" : 2,
+        "IsOn" : true,
         "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
-        "Name" : "Light 1"
+        "Name" : "Light 2"
       },
       "-KNbO3zK-0Q3a7IxggfW" : {
-        "GPIO" : 2,
+        "GPIO" : 3,
         "IsOn" : false,
         "MainBoardID" : "KNbKR6TYvKQlEJ2Nzj7",
-        "Name" : "Light 2"
-      },
-      "-KNbOJyLTr18dcUvcGQA" : {
-        "GPIO" : 1,
-        "IsOn" : false,
-        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
-        "Name" : "Light 1"
-      },
-      "-KNbONsktKMDJA9dNO27" : {
-        "GPIO" : 2,
-        "IsOn" : false,
-        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
-        "Name" : "Light 2"
-      },
-      "-KNbOY0b5uB6-zdBJ0xe" : {
-        "GPIO" : 3,
-        "IsOn" : true,
-        "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
         "Name" : "Light 3"
       },
-      "-KNbOaj1Y3BXjAuIU8lY" : {
+      "-KNbOJyLTr18dcUvcGQA" : {
         "GPIO" : 4,
+        "IsOn" : true,
+        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
+        "Name" : "Light 4"
+      },
+      "-KNbONsktKMDJA9dNO27" : {
+        "GPIO" : 5,
+        "IsOn" : false,
+        "MainBoardID" : "KNbMIqT-5sYNe-o0pbs",
+        "Name" : "Light 5"
+      },
+      "-KNbOY0b5uB6-zdBJ0xe" : {
+        "GPIO" : 6,
         "IsOn" : false,
         "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
-        "Name" : "Light 4"
+        "Name" : "Light 6"
+      },
+      "-KNbOaj1Y3BXjAuIU8lY" : {
+        "GPIO" : 7,
+        "IsOn" : true,
+        "MainBoardID" : "KNbLOJ26MQwc19VVdIJ",
+        "Name" : "Light 7"
+      },
+      "-KQdW_vC2RY72C2TB-Ns" : {
+        "GPIO" : 8,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 8"
+      },
+      "-KQdWmq1zEyLcsRZexbj" : {
+        "GPIO" : 9,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 9"
+      },
+      "-KQdXk6o_r7eZ5zMBspQ" : {
+        "GPIO" : 10,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 10"
+      },
+      "-KQdXq0TMjSp_THwIT1q" : {
+        "GPIO" : 11,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 11"
+      },
+      "-KQdXv0bPJLZ7oB6u_iK" : {
+        "GPIO" : 12,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 12"
+      },
+      "-KQdXzIHXZutbyxDXB0w" : {
+        "GPIO" : 13,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 13"
+      },
+      "-KQdYPPjg9A2QCIyeXC7" : {
+        "GPIO" : 16,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 16"
+      },
+      "-KQdYX5YDZlDciXB5hmf" : {
+        "GPIO" : 17,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 17"
+      },
+      "-KQdZ2QNd6X6Xtu9Fl9U" : {
+        "GPIO" : 18,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 18"
+      },
+      "-KQdZCiSp8H7m7rbp7u3" : {
+        "GPIO" : 19,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 19"
+      },
+      "-KQdZK0skkcQm_cH5bWW" : {
+        "GPIO" : 20,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 20"
+      },
+      "-KQdZPkWK5XWkJDIsPI8" : {
+        "GPIO" : 21,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 21"
+      },
+      "-KQdZV7KP4eWNNOM_wZV" : {
+        "GPIO" : 22,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 22"
+      },
+      "-KQdZmhRiMj2lDqp8Qa6" : {
+        "GPIO" : 23,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 23"
+      },
+      "-KQd_1qVxSM7rFPbaEMt" : {
+        "GPIO" : 24,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 24"
+      },
+      "-KQd_B-izFRQqNVzcLou" : {
+        "GPIO" : 25,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 25"
+      },
+      "-KQd_Yv1sL6IJMzTVP24" : {
+        "GPIO" : 26,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 26"
+      },
+      "-KQd_zWrYteCuGw74yGv" : {
+        "GPIO" : 27,
+        "IsOn" : false,
+        "MainBoardID" : "KNbHF_A_G9CB-F1MeMw",
+        "Name" : "Light 27"
       }
+    }
+  },
+  "logs" : {
+    "toggle" : {
+      "-KNbNyxPqQian7MF1xzz" : true
     }
   },
   "notifications" : {
     "-KNm3o_qZkOX1tMqAuQi" : {
       "Footer" : "",
       "ImagePath" : "",
-      "Title" : "Motion Detected",
+      "Title" : "Motion Detected 1",
       "Type" : "Motion"
     },
     "-KNm3sQ34JknZW-rCxLZ" : {
       "Footer" : "",
       "ImagePath" : "",
-      "Title" : "Motion Detected",
+      "Title" : "Motion Detected 2",
       "Type" : "Motion"
     },
     "-KNm3uGaRb1pRYqzFzHP" : {
       "Footer" : "",
       "ImagePath" : "",
-      "Title" : "Motion Detected",
+      "Title" : "Motion Detected 3",
       "Type" : "Motion"
     },
     "-KNm3w9zn0fh8xHNmOTP" : {
       "Footer" : "",
       "ImagePath" : "",
-      "Title" : "Motion Detected",
+      "Title" : "Motion Detected 4",
       "Type" : "Motion"
     }
   },
@@ -187,30 +300,28 @@
     }
   },
   "subscriptions" : {
-    "-KNfp-64QKXwZ9v2QZLF" : {
-      "date" : "Wed, 27 Jul 2016 10:08:49 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "dVeQZHlns0s:APA91bGemJ5TO2eGqDdp9Rm_8axvGC_4THqhTjPVyNia8vBAELu1T5mNRWxgqOrL_3dj3nQIAB1jTnnuuaqLIGFuNyapAnKClI_AJAvl_PFaD6Bf8Uy2qUctdHQb_91cAzrBJCyKO1-_"
-    },
-    "-KNg2ZDn5hApcVzoB4Bp" : {
-      "date" : "Wed, 27 Jul 2016 11:12:27 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "dj7PcEwwEL0:APA91bEn35yTsAipsVO4usZpvxYolvp-2u1_HtKxo1NFcUWxEQA61FbApA8fIyHqUBBKvBay9B-O70iQjWBkSM6UlMAj-gfhgUKhZ0Pcc79lSx0l_96o-aWAcqaE4dt_gyyatbraeYMB"
-    },
-    "-KNgmfIZMGZts-ADLeoz" : {
-      "date" : "Wed, 27 Jul 2016 14:38:17 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "eZAGgZfG5OA:APA91bESHAAtCwK5EoXA0pkf_gl49k0rC95mZO058pFw-1axVbltm2no6OIFUNDNERsEbTJtSIE3HwCtsAP9hqCqrMFlGY-GHHpT1RXmQhLzavfN4xPAAj_hi_p8MwQhbVO7a-dyd9Fo"
-    },
-    "-KNgmtFTuRK0wtf2XiBk" : {
-      "date" : "Wed, 27 Jul 2016 14:39:14 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "fLJ5p0_mkmo:APA91bGpDFVlX1l__Ge0mOBwOHWLpmjrLKngtFaqzeLptsNYWYSwRIb6pgGLkydvE0nPAYZKFERMF82TlHfwO2tGsNCSIGjUXrX1CPln97mzfrTWAZCJVzNnPT9dSP2ofxPGyyEoaMcr"
-    },
-    "-KNgnE7zB8QPgP-olG4a" : {
-      "date" : "Wed, 27 Jul 2016 14:40:44 GMT",
-      "email" : "sagar.shelar@outlook.com",
-      "regID" : "cz1FOE1I0Gk:APA91bFyrjNciS5WEZeQRgc2Mruj23GNIhaqSoybsyn5QKQtZRwPzu-l_kUGLQRwktkjxWdv4x4ztcAExmW9Oo8ddJY4LC_WJSG0HIN_D3h9qwzg77bA4jPlr8OzdljF_OHmehtYoSjr"
+    "-313036591" : {
+      "-1677491705" : {
+        "Browser" : "Chrome 52",
+        "Email" : "sagar.shelar@outlook.com",
+        "HostName" : "smarthome-46be4.firebaseapp.com",
+        "OS" : "Win32",
+        "RegID" : "eiWMSb0J588:APA91bE_Rw5joSzLyLtjEXSu7mYY1fuNf7CwxAutrzd3hVS8qIyhHB9IvOMT7QYw-1IUfBtXFuPgWL2dSlUHIvi0sWAKHETFukyQ_zFvIWc1mvIfTtvmkFoWLo2wZuYPhdNiJWW3Vdjn"
+      },
+      "760504608" : {
+        "Browser" : "Chrome 52",
+        "Email" : "sagar.shelar@outlook.com",
+        "HostName" : "smarthome-46be4.firebaseapp.com",
+        "OS" : "Win32",
+        "RegID" : "e_0PGTvJwrI:APA91bEY0z5VJLl1Ug2wK6AZ5dP0iwJ-_1sOBJpTC2CsjLXx9WhOaBWJzKRkwz3UaWrQotfPTdpORk8B4YoNI5zUgB1QSPocWuAzbvOI53FQgeVF_QPJ3NF8CzGejg6vcHtYEtuocFsF"
+      },
+      "1182496178" : {
+        "Browser" : "Chrome 52",
+        "Email" : "sagar.shelar@outlook.com",
+        "HostName" : "smarthome-46be4.firebaseapp.com",
+        "OS" : "Linux aarch64",
+        "RegID" : "eO-fnw380Zs:APA91bFOAro839sFp0Lbmub929WoxebRGEfvUsfQvX-87LK_urfcaye-Mo6DRH31_zsKENuJtyS5q4ciOvUnYBKag4T0Z-5ivotUKgSDyFKmC0H5XRb8e-U4PKvfJJtHXBXok9o295-I"
+      }
     }
   }
 }

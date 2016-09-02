@@ -1,0 +1,964 @@
+[
+    {
+        "id": "aa1b25e.d84d6d8",
+        "type": "google-firebase-config",
+        "z": "edba2786.1245d8",
+        "databaseUrl": "smarthome-46be4",
+        "apiKey": "a724a1bd5ec9ecc01236fc7654b739c40d7c7511",
+        "authDomain": "smarthome-46be4"
+    },
+    {
+        "id": "2ba6056e.49fdda",
+        "type": "google.firebase.on",
+        "z": "edba2786.1245d8",
+        "name": "devices/toggleDevices",
+        "firebaseConfig": "aa1b25e.d84d6d8",
+        "childpath": "devices/toggleDevices",
+        "eventType": "child_changed",
+        "x": 105,
+        "y": 799,
+        "wires": [
+            [
+                "8267a950.0eea78",
+                "a6d33fc2.c3059",
+                "41767823.d100b8"
+            ]
+        ]
+    },
+    {
+        "id": "8267a950.0eea78",
+        "type": "switch",
+        "z": "edba2786.1245d8",
+        "name": "2,3,4,5,6,8,9,10,11",
+        "property": "payload.GPIO",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 10,
+        "x": 672.9999618530273,
+        "y": 240,
+        "wires": [
+            [
+                "f1b9d53f.74a488"
+            ],
+            [
+                "bab68df3.8ee5b"
+            ],
+            [
+                "a8ea9ed1.a58bd"
+            ],
+            [
+                "80fa0c84.ff432"
+            ],
+            [
+                "3b7c86ec.7d68ca"
+            ],
+            [
+                "8ef87175.1c8db"
+            ],
+            [
+                "2d307501.26ffea"
+            ],
+            [
+                "fb92f3dc.8dc27"
+            ],
+            [
+                "1cd12d0d.b33073"
+            ],
+            [
+                "677b309e.58cf4"
+            ]
+        ]
+    },
+    {
+        "id": "f1b9d53f.74a488",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO2",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio2',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1006.9999618530273,
+        "y": 49,
+        "wires": [
+            [
+                "252bc070.0749d"
+            ]
+        ]
+    },
+    {
+        "id": "252bc070.0749d",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO2",
+        "pin": "3",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1167.9999618530273,
+        "y": 49,
+        "wires": []
+    },
+    {
+        "id": "bab68df3.8ee5b",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO3",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio3',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1005.9999618530273,
+        "y": 98,
+        "wires": [
+            [
+                "bb283b3b.c90278"
+            ]
+        ]
+    },
+    {
+        "id": "bb283b3b.c90278",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO3",
+        "pin": "5",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1167.9999618530273,
+        "y": 98,
+        "wires": []
+    },
+    {
+        "id": "a8ea9ed1.a58bd",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO4",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio4',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1004.9999618530273,
+        "y": 150,
+        "wires": [
+            [
+                "eb84b630.3d10c8"
+            ]
+        ]
+    },
+    {
+        "id": "eb84b630.3d10c8",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO4",
+        "pin": "7",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1166.9999618530273,
+        "y": 150,
+        "wires": []
+    },
+    {
+        "id": "80fa0c84.ff432",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO5",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio5',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1004.9999618530273,
+        "y": 198,
+        "wires": [
+            [
+                "2fb0dad0.9f7986"
+            ]
+        ]
+    },
+    {
+        "id": "2fb0dad0.9f7986",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO5",
+        "pin": "29",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1166.9999618530273,
+        "y": 198,
+        "wires": []
+    },
+    {
+        "id": "3b7c86ec.7d68ca",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO6",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio6',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1001.9999618530273,
+        "y": 245,
+        "wires": [
+            [
+                "6e3282cb.4cdc2c"
+            ]
+        ]
+    },
+    {
+        "id": "6e3282cb.4cdc2c",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO6",
+        "pin": "31",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1163.9999618530273,
+        "y": 245,
+        "wires": []
+    },
+    {
+        "id": "8ef87175.1c8db",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO7",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio7',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1001.9999618530273,
+        "y": 297,
+        "wires": [
+            [
+                "356b91d6.d614fe"
+            ]
+        ]
+    },
+    {
+        "id": "356b91d6.d614fe",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO7",
+        "pin": "26",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1162.9999618530273,
+        "y": 297,
+        "wires": []
+    },
+    {
+        "id": "2d307501.26ffea",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO8",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio8',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000.9999618530273,
+        "y": 346,
+        "wires": [
+            [
+                "11ff0e3e.50bcf2"
+            ]
+        ]
+    },
+    {
+        "id": "11ff0e3e.50bcf2",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO8",
+        "pin": "24",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1162.9999618530273,
+        "y": 346,
+        "wires": []
+    },
+    {
+        "id": "fb92f3dc.8dc27",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO9",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio9',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 999.9999618530273,
+        "y": 398,
+        "wires": [
+            [
+                "9407e2b7.3506f"
+            ]
+        ]
+    },
+    {
+        "id": "9407e2b7.3506f",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO9",
+        "pin": "21",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1161.9999618530273,
+        "y": 398,
+        "wires": []
+    },
+    {
+        "id": "1cd12d0d.b33073",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO10",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio10',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1009.9999618530273,
+        "y": 446,
+        "wires": [
+            [
+                "35063698.95803a"
+            ]
+        ]
+    },
+    {
+        "id": "35063698.95803a",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO10",
+        "pin": "19",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1171.9999618530273,
+        "y": 446,
+        "wires": []
+    },
+    {
+        "id": "677b309e.58cf4",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO11",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio11',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1006.9999618530273,
+        "y": 493,
+        "wires": [
+            [
+                "da89b151.7f6c8"
+            ]
+        ]
+    },
+    {
+        "id": "da89b151.7f6c8",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO11",
+        "pin": "23",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1168.9999618530273,
+        "y": 493,
+        "wires": []
+    },
+    {
+        "id": "a6d33fc2.c3059",
+        "type": "switch",
+        "z": "edba2786.1245d8",
+        "name": "12,13,16,17,18,19,20,21,22,23",
+        "property": "payload.GPIO",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "12",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "13",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "16",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "17",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "18",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "19",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "20",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "21",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "22",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "23",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 10,
+        "x": 692.0000305175781,
+        "y": 807.6667175292969,
+        "wires": [
+            [
+                "360296b1.a55d4a"
+            ],
+            [
+                "8690af98.fd05e"
+            ],
+            [
+                "aff11fd2.bf908"
+            ],
+            [
+                "5d9470c8.f4dd1"
+            ],
+            [
+                "fe42719.4d7c99"
+            ],
+            [
+                "e86e93f9.7178"
+            ],
+            [
+                "f64c5808.792898"
+            ],
+            [
+                "47a2120.97fa6f"
+            ],
+            [
+                "958b5693.8f5058"
+            ],
+            [
+                "88f8363b.34a328"
+            ]
+        ]
+    },
+    {
+        "id": "360296b1.a55d4a",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO12",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio12',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010.0000305175781,
+        "y": 560.6666870117188,
+        "wires": [
+            [
+                "87a1ede8.ee26e"
+            ]
+        ]
+    },
+    {
+        "id": "87a1ede8.ee26e",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO12",
+        "pin": "32",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1171.0000305175781,
+        "y": 560.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "8690af98.fd05e",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO13",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio13',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1009.0000305175781,
+        "y": 609.6666870117188,
+        "wires": [
+            [
+                "b7c43da.98543c"
+            ]
+        ]
+    },
+    {
+        "id": "b7c43da.98543c",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO13",
+        "pin": "33",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1171.0000305175781,
+        "y": 609.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "aff11fd2.bf908",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO16",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio16',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1008.0000305175781,
+        "y": 661.6666870117188,
+        "wires": [
+            [
+                "84afa5c0.051c88"
+            ]
+        ]
+    },
+    {
+        "id": "84afa5c0.051c88",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO16",
+        "pin": "36",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1170.0000305175781,
+        "y": 661.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "5d9470c8.f4dd1",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO17",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio17',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1008.0000305175781,
+        "y": 709.6666870117188,
+        "wires": [
+            [
+                "26582f.1d1b47d2"
+            ]
+        ]
+    },
+    {
+        "id": "26582f.1d1b47d2",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO17",
+        "pin": "11",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1170.0000305175781,
+        "y": 709.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "fe42719.4d7c99",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO18",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio18',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1005.0000305175781,
+        "y": 756.6666870117188,
+        "wires": [
+            [
+                "f58efbea.b6cd78"
+            ]
+        ]
+    },
+    {
+        "id": "f58efbea.b6cd78",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO18",
+        "pin": "12",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1167.0000305175781,
+        "y": 756.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "e86e93f9.7178",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO19",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio19',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1005.0000305175781,
+        "y": 808.6666870117188,
+        "wires": [
+            [
+                "e36b4bdf.8b6498"
+            ]
+        ]
+    },
+    {
+        "id": "e36b4bdf.8b6498",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO19",
+        "pin": "35",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1166.0000305175781,
+        "y": 808.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "f64c5808.792898",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO20",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio20',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1004.0000305175781,
+        "y": 857.6666870117188,
+        "wires": [
+            [
+                "88ec4363.d3d6c"
+            ]
+        ]
+    },
+    {
+        "id": "88ec4363.d3d6c",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO20",
+        "pin": "38",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1166.0000305175781,
+        "y": 857.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "47a2120.97fa6f",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO21",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio21',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1003.0000305175781,
+        "y": 909.6666870117188,
+        "wires": [
+            [
+                "e9589920.9cd158"
+            ]
+        ]
+    },
+    {
+        "id": "e9589920.9cd158",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO21",
+        "pin": "40",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1165.0000305175781,
+        "y": 909.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "958b5693.8f5058",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO22",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio22',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1003.0000305175781,
+        "y": 957.6666870117188,
+        "wires": [
+            [
+                "e6ecdfc8.06204"
+            ]
+        ]
+    },
+    {
+        "id": "e6ecdfc8.06204",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO22",
+        "pin": "15",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1165.0000305175781,
+        "y": 957.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "88f8363b.34a328",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO23",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio23',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1000.0000305175781,
+        "y": 1004.6666870117188,
+        "wires": [
+            [
+                "81f51a40.35c768"
+            ]
+        ]
+    },
+    {
+        "id": "81f51a40.35c768",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO23",
+        "pin": "16",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1162.0000305175781,
+        "y": 1004.6666870117188,
+        "wires": []
+    },
+    {
+        "id": "41767823.d100b8",
+        "type": "switch",
+        "z": "edba2786.1245d8",
+        "name": "24,25,26,27",
+        "property": "payload.GPIO",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "24",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "25",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "26",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "27",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 4,
+        "x": 648.6665954589844,
+        "y": 1145.3333740234375,
+        "wires": [
+            [
+                "68abb146.a1caf"
+            ],
+            [
+                "cbacca70.954798"
+            ],
+            [
+                "1f2f57a3.fd39c8"
+            ],
+            [
+                "4e9da076.837c8"
+            ]
+        ]
+    },
+    {
+        "id": "68abb146.a1caf",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO24",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio24',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 995.6666259765625,
+        "y": 1071.3333435058594,
+        "wires": [
+            [
+                "7ecd7c98.b9c644"
+            ]
+        ]
+    },
+    {
+        "id": "7ecd7c98.b9c644",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO24",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1156.6666259765625,
+        "y": 1071.3333435058594,
+        "wires": []
+    },
+    {
+        "id": "cbacca70.954798",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO25",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio25',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 994.6666259765625,
+        "y": 1120.3333435058594,
+        "wires": [
+            [
+                "35b2f6d1.467e6a"
+            ]
+        ]
+    },
+    {
+        "id": "35b2f6d1.467e6a",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO25",
+        "pin": "22",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1156.6666259765625,
+        "y": 1120.3333435058594,
+        "wires": []
+    },
+    {
+        "id": "1f2f57a3.fd39c8",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO26",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio26',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 993.6666259765625,
+        "y": 1172.3333435058594,
+        "wires": [
+            [
+                "2f5146f0.515afa"
+            ]
+        ]
+    },
+    {
+        "id": "2f5146f0.515afa",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO26",
+        "pin": "37",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1155.6666259765625,
+        "y": 1172.3333435058594,
+        "wires": []
+    },
+    {
+        "id": "4e9da076.837c8",
+        "type": "function",
+        "z": "edba2786.1245d8",
+        "name": "GPIO27",
+        "func": "var isOn = msg.payload.IsOn ? 1 : 0;\nmsg.payload = isOn;\nglobal.set('gpio27',isOn);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 993.6666259765625,
+        "y": 1220.3333435058594,
+        "wires": [
+            [
+                "fcd2a086.6a00d"
+            ]
+        ]
+    },
+    {
+        "id": "fcd2a086.6a00d",
+        "type": "rpi-gpio out",
+        "z": "edba2786.1245d8",
+        "name": "GPIO27",
+        "pin": "13",
+        "set": true,
+        "level": "0",
+        "out": "out",
+        "x": 1155.6666259765625,
+        "y": 1220.3333435058594,
+        "wires": []
+    }
+]
