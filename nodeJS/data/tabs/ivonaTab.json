@@ -1,0 +1,45 @@
+[
+    {
+        "id": "19406d25.7b07f3",
+        "type": "ivona-credentials",
+        "z": "ef4e6ab5.ce9c68",
+        "name": "shaggy.shelar@gmail.com",
+        "api_key": "GDNAIYZIWB3GYNHIKSOA",
+        "password": "49ChW8hVBcytVrlGSxWhh1W9SfL2269Tru4Txer3"
+    },
+    {
+        "id": "932489d5.c8dd28",
+        "type": "ivona-tts",
+        "z": "a0db4a18.6fa6c8",
+        "name": "",
+        "message": "{{payload}}",
+        "voice": "9",
+        "exec": "mpg123 {{{file}}}",
+        "dir": "/tmp/{{voice_name}}-{{lang}}-{{slug}}.mp3",
+        "broker": "19406d25.7b07f3",
+        "x": 474.333251953125,
+        "y": 114.66665649414062,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b1028abe.504f88",
+        "type": "inject",
+        "z": "a0db4a18.6fa6c8",
+        "name": "Speech Demo",
+        "topic": "Speech Demo",
+        "payload": "Hi Shaggy, celing lights in bedroom are turned on.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 147,
+        "y": 113.00001525878906,
+        "wires": [
+            [
+                "932489d5.c8dd28"
+            ]
+        ]
+    }
+]
