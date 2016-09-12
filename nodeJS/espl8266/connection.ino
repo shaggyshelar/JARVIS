@@ -14,7 +14,7 @@ IPAddress subnet(255, 255, 255, 0);
 RestClient restClient = RestClient("192.168.1.106",4600);
 ESP8266WebServer server(80);
 
-const int led = 13;
+const int led = 13, gpio1=1,gpio2=2,gpio3=3,gpio4=4,gpio5=5,gpio9=9,gpio10=10,gpio12=12,gpio13=13,gpio14=14,gpio15=15,gpio16=16;
 
 void returnOK(String msg) {
   server.send(200, "text/plain", msg + "\r\n");
@@ -25,9 +25,7 @@ void returnFail(String msg) {
 }
 
 void handleRoot() {
-  digitalWrite(led, 1);
   server.send(200, "text/plain", "Hello from Sagar's esp8266!");
-  digitalWrite(led, 0);
 }
 
 void updateGPIOStatus() {
@@ -49,39 +47,52 @@ void updateGPIOStatus() {
 
   switch (gpio) {
     case 1:
-      returnOK("Setting = 1 to "+gpioStatus);
+      returnOK("Setting = 1 to "+toUpdatestatus);
+      digitalWrite(gpio1, toUpdatestatus);
       break;
     case 2:
-      returnOK("Setting = 2 to "+gpioStatus);
+      returnOK("Setting = 2 to "+toUpdatestatus);
+      digitalWrite(gpio2, toUpdatestatus);
       break;
     case 3:
-      returnOK("Setting = 3 to "+gpioStatus);
+      returnOK("Setting = 3 to "+toUpdatestatus);
+      digitalWrite(gpio3, toUpdatestatus);
       break;
     case 4:
-      returnOK("Setting = 4 to "+gpioStatus);
+      returnOK("Setting = 4 to "+toUpdatestatus);
+      digitalWrite(gpio4, toUpdatestatus);
       break;
     case 5:
-      returnOK("Setting = 5 to "+gpioStatus);
+      returnOK("Setting = 5 to "+toUpdatestatus);
+      digitalWrite(gpio5, toUpdatestatus);
       break;
     case 9:
-      returnOK("Setting = 9 to "+gpioStatus);
+      returnOK("Setting = 9 to "+toUpdatestatus);
+      digitalWrite(gpio9, toUpdatestatus);
       break;
     case 10:
-      returnOK("Setting = 10 to "+gpioStatus);
+      returnOK("Setting = 10 to "+toUpdatestatus);
+      digitalWrite(gpio10, toUpdatestatus);
       break;
     case 12:
-      returnOK("Setting = 12 to "+gpioStatus);
+      returnOK("Setting = 12 to "+toUpdatestatus);
+      digitalWrite(gpio12, toUpdatestatus);
       break;
     case 13:
-      returnOK("Setting = 13 to "+gpioStatus);
+      returnOK("Setting = 13 to "+toUpdatestatus);
+      digitalWrite(gpio13, toUpdatestatus);
       break;
     case 14:
-      returnOK("Setting = 14 to "+gpioStatus);
+      returnOK("Setting = 14 to "+toUpdatestatus);
+      digitalWrite(gpio14, toUpdatestatus);
       break;
     case 15:
-      returnOK("Setting = 15 to "+gpioStatus);
+      returnOK("Setting = 15 to "+toUpdatestatus);
+      digitalWrite(gpio15, toUpdatestatus);
+      break;
     case 16:
-      returnOK("Setting = 16 to "+gpioStatus);
+      returnOK("Setting = 16 to "+toUpdatestatus);
+      digitalWrite(gpio16, toUpdatestatus);
       break;
     default:
       returnOK(" Invalid GPIO selected = "+server.arg(0));
@@ -89,7 +100,6 @@ void updateGPIOStatus() {
 }
 
 void handleNotFound(){
-  digitalWrite(led, 1);
   String message = "File Not Found\n\n";
   message += "URI: ";
   message += server.uri();
@@ -102,12 +112,22 @@ void handleNotFound(){
     message += " " + server.argName(i) + ": " + server.arg(i) + "\n";
   }
   server.send(404, "text/plain", message);
-  digitalWrite(led, 0);
 }
 
 void setup(void){
-  pinMode(led, OUTPUT);
-  digitalWrite(led, 0);
+  //pinMode(led, OUTPUT);digitalWrite(led, 0);
+  //pinMode(gpio1, OUTPUT);digitalWrite(gpio1, 0); //Not Working
+  pinMode(gpio2, OUTPUT);digitalWrite(gpio2, 0);
+  //pinMode(gpio3, OUTPUT);digitalWrite(gpio3, 0); //Not Working
+  pinMode(gpio4, OUTPUT);digitalWrite(gpio4, 0);
+  pinMode(gpio5, OUTPUT);digitalWrite(gpio5, 0);
+  //pinMode(gpio9, OUTPUT);digitalWrite(gpio9, 0); //Breaking deployment
+  pinMode(gpio10, OUTPUT);digitalWrite(gpio10, 0);
+  pinMode(gpio12, OUTPUT);digitalWrite(gpio12, 0);
+  pinMode(gpio13, OUTPUT);digitalWrite(gpio13, 0);
+  pinMode(gpio14, OUTPUT);digitalWrite(gpio14, 0);
+  pinMode(gpio15, OUTPUT);digitalWrite(gpio15, 0);
+  pinMode(gpio16, OUTPUT);digitalWrite(gpio16, 0);
   Serial.begin(115200);
   WiFi.begin(ssid, password);
   restClient.begin("TP-LINK_490206","67352289");
@@ -144,7 +164,6 @@ void setup(void){
   });
 
   server.onNotFound(handleNotFound);
-
   server.begin();
   Serial.println("HTTP server started");
 }
