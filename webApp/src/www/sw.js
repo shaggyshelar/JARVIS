@@ -37,15 +37,55 @@ self.addEventListener('push', function (event) {
     var title = 'Notification.';
     var body = 'Click to see new notification.';
     var icon = 'assets/images/jarvis192.png';
-    var tag = 'simple-push-demo-notification-tag';
+    var notificationTag = 'simple-push-demo-notification-tag';
 
     event.waitUntil(
         self.registration.showNotification(title, {
-            body: body,
-            icon: icon,
-            tag: tag
+            body: body,icon: icon,tag: notificationTag
         })
     );
+
+    // event.waitUntil(
+    //     fetch("SOME_API_ENDPOINT").then(function (response) {
+    //         if (response.status !== 200) {
+    //             return self.registration.showNotification(title, {
+    //                 body: 'Looks like there was a problem. Status Code: ' + response.status,
+    //                 icon: icon,
+    //                 tag: notificationTag
+    //             });
+    //         }
+
+    //         return response.json().then(function (data) {
+    //             if (data.error || !data.notification) {
+    //                 return self.registration.showNotification(title, {
+    //                     body: 'The API returned an error.' + data.error,
+    //                     icon: icon,
+    //                     tag: notificationTag
+    //                 });
+    //             }
+
+    //             /* var title = data.notification.title;
+    //             var body = data.notification.message;
+    //             var icon = data.notification.icon;
+    //             var notificationTag = data.notification.tag; */
+
+    //             return self.registration.showNotification(title, {
+    //                 body: body,
+    //                 icon: icon,
+    //                 tag: notificationTag
+    //             });
+    //         });
+    //     }).catch(function (err) {
+    //         title = 'An error occurred';
+    //         body = 'We were unable to get the information for this push message';
+    //         notificationTag = 'notification-error';
+    //         return self.registration.showNotification(title, {
+    //             body: body,
+    //             icon: icon,
+    //             tag: notificationTag
+    //         });
+    //     })
+    // );
 });
 
 self.addEventListener('notificationclick', function (event) {

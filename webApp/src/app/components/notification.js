@@ -81,7 +81,6 @@ class Notification extends React.Component {
                                     </StepButton>
                                     <StepContent>
                                         <p>
-                                            Message Or Image Here
                                             {item.Footer}
                                         </p>
                                     </StepContent>
