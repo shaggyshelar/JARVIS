@@ -9,8 +9,8 @@
         "exec": "{{{file}}}",
         "dir": "/tmp/{{voice_name}}-{{lang}}-{{slug}}.mp3",
         "broker": "47eb705a.dabe6",
-        "x": 658.5555572509766,
-        "y": 192.88886070251465,
+        "x": 637.5555114746094,
+        "y": 186.88884735107422,
         "wires": [
             []
         ]
@@ -55,14 +55,15 @@
         "suspend": false,
         "random": true,
         "repeat": false,
-        "atstart": true,
+        "atstart": false,
         "x": 163,
         "y": 86.49999618530273,
         "wires": [
             [],
             [],
             [
-                "f4b65eca.d90b6"
+                "f4b65eca.d90b6",
+                "6bcf4ef8.fa416"
             ]
         ]
     },
@@ -107,13 +108,14 @@
         "random": true,
         "repeat": false,
         "atstart": true,
-        "x": 142.5555648803711,
+        "x": 152.5555648803711,
         "y": 186.3888874053955,
         "wires": [
             [],
             [],
             [
-                "f4b65eca.d90b6"
+                "f4b65eca.d90b6",
+                "6bcf4ef8.fa416"
             ]
         ]
     },
@@ -157,14 +159,15 @@
         "suspend": false,
         "random": true,
         "repeat": false,
-        "atstart": true,
+        "atstart": false,
         "x": 150.4296989440918,
         "y": 286.6362886428833,
         "wires": [
             [],
             [],
             [
-                "f4b65eca.d90b6"
+                "f4b65eca.d90b6",
+                "6bcf4ef8.fa416"
             ]
         ]
     },
@@ -208,14 +211,15 @@
         "suspend": false,
         "random": true,
         "repeat": false,
-        "atstart": true,
+        "atstart": false,
         "x": 152.64756944444443,
         "y": 378.8671875,
         "wires": [
             [],
             [],
             [
-                "f4b65eca.d90b6"
+                "f4b65eca.d90b6",
+                "6bcf4ef8.fa416"
             ]
         ]
     },
@@ -259,14 +263,59 @@
         "suspend": false,
         "random": true,
         "repeat": false,
-        "atstart": true,
+        "atstart": false,
         "x": 150.43402777777777,
         "y": 463.30729166666663,
         "wires": [
             [],
             [],
             [
-                "f4b65eca.d90b6"
+                "f4b65eca.d90b6",
+                "6bcf4ef8.fa416"
+            ]
+        ]
+    },
+    {
+        "id": "684c8e19.a3085",
+        "type": "google.gcm.send",
+        "z": "b73c8a92.b879a8",
+        "name": "GCM",
+        "gcmConfig": "5044b9fc.32c148",
+        "tokens": "dXgO80zv6wc:APA91bE8J11GgJm3IWoj9jHLu0u0CH9bE4YJbgk5guTOicvuvFYc4E6IinbHnTnVHuwq6Iex7ZC5Lamjf0-zDHGsNZr1dnXBd9uxx70cqKYM5VNzQPCEqNXWQGOY57ZGhVRDjzN8kcLo,eiWMSb0J588:APA91bE_Rw5joSzLyLtjEXSu7mYY1fuNf7CwxAutrzd3hVS8qIyhHB9IvOMT7QYw-1IUfBtXFuPgWL2dSlUHIvi0sWAKHETFukyQ_zFvIWc1mvIfTtvmkFoWLo2wZuYPhdNiJWW3Vdjn",
+        "x": 1137.3827819824219,
+        "y": 281.36327362060547,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8dbff7e2.26ab38",
+        "type": "google.firebase.push",
+        "z": "b73c8a92.b879a8",
+        "name": "Firebase Notifications",
+        "firebaseConfig": "31faa256.d9b9be",
+        "childpath": "notifications/",
+        "x": 940.4999694824219,
+        "y": 280.6666488647461,
+        "wires": [
+            [
+                "684c8e19.a3085"
+            ]
+        ]
+    },
+    {
+        "id": "6bcf4ef8.fa416",
+        "type": "function",
+        "z": "b73c8a92.b879a8",
+        "name": "Notification Message",
+        "func": "msg.payload = {\n  'Title' : msg.payload,\n  'Type' : 'Mode Change',\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 660.4999694824219,
+        "y": 286.6666488647461,
+        "wires": [
+            [
+                "8dbff7e2.26ab38"
             ]
         ]
     },
@@ -277,5 +326,19 @@
         "name": "shaggy.shelar@gmail.com",
         "api_key": "GDNAIYZIWB3GYNHIKSOA",
         "password": "49ChW8hVBcytVrlGSxWhh1W9SfL2269Tru4Txer3"
+    },
+    {
+        "id": "5044b9fc.32c148",
+        "type": "google-gcm-config",
+        "z": "b73c8a92.b879a8",
+        "apiKey": "AIzaSyB-9EC1ZLHOSIsyUF92bmMqRY6MWg7Nni0"
+    },
+    {
+        "id": "31faa256.d9b9be",
+        "type": "google-firebase-config",
+        "z": "b73c8a92.b879a8",
+        "databaseUrl": "smarthome-46be4",
+        "apiKey": "a724a1bd5ec9ecc01236fc7654b739c40d7c7511",
+        "authDomain": "smarthome-46be4"
     }
 ]
